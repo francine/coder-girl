@@ -5,8 +5,8 @@
 type: task
 tags: [relationship-weighting, context-prioritization, strength-indicators]
 created: 2025-01-22
-updated: 2025-01-22
-status: todo
+updated: 2025-01-25
+status: done
 severity: medium
 up: "[[Semantic Relationships.md]]"
 feature: "[[Semantic Linking Enhancement.md]]"

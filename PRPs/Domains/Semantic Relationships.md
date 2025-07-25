@@ -403,23 +403,299 @@ Enhanced coherent relationship patterns across the knowledge graph:
 
 ## Relationship Weighting
 
-### Strength Indicators
+### Strength Indicator Categories
 
-Quantifying the importance or closeness of relationships:
+Systematic classification of relationship importance and strength for intelligent context prioritization:
 
-- **Critical Dependencies**: Relationships essential for understanding or implementation
-- **Supporting Context**: Relationships that enhance but aren't required for comprehension
-- **Optional References**: Relationships that provide additional insight but can be omitted
-- **Contextual Relevance**: Dynamic weighting based on current focus or goals
+#### Critical Dependencies (Weight: 1.0)
+- **Definition**: Relationships absolutely essential for understanding or successful implementation
+- **Characteristics**:
+  - Target concept cannot be comprehended without source context
+  - Implementation failure occurs if relationship is ignored
+  - Fundamental prerequisite knowledge for task completion
+  - Core architectural or conceptual dependencies
+- **Selection Criteria**:
+  - Removal breaks functionality or understanding
+  - Direct causal dependency exists
+  - Primary inheritance or composition relationships
+  - Essential integration points between systems
+- **Examples**:
+  - Database Schema `critical-dependency` → API Endpoints (API cannot function without schema)
+  - Authentication Backend `critical-dependency` → User Sessions (sessions require auth foundation)
+  - Parent Domain `critical-dependency` → Child Implementation (inheritance requires parent context)
+
+#### Supporting Context (Weight: 0.7)
+- **Definition**: Relationships that significantly enhance understanding and implementation quality
+- **Characteristics**:
+  - Target can function without source but benefits substantially from connection
+  - Provides important background knowledge and implementation patterns
+  - Enhances decision-making and reduces implementation risks
+  - Offers proven approaches and established best practices
+- **Selection Criteria**:
+  - Improves implementation quality when present
+  - Provides valuable context for decision-making
+  - Contains relevant patterns or methodologies
+  - Reduces development time through proven approaches
+- **Examples**:
+  - Security Patterns `supporting-context` → Authentication Implementation (enhances security approach)
+  - Testing Frameworks `supporting-context` → Feature Development (improves quality assurance)
+  - Performance Optimization `supporting-context` → Database Design (enhances efficiency)
+
+#### Optional References (Weight: 0.4)
+- **Definition**: Relationships providing additional insight that can be omitted without significant impact
+- **Characteristics**:
+  - Supplementary information that enriches understanding
+  - Alternative approaches or comparative examples
+  - Historical context or related technologies
+  - Nice-to-have knowledge that doesn't affect core implementation
+- **Selection Criteria**:
+  - Provides interesting but non-essential information
+  - Offers alternative perspectives or approaches
+  - Contains supplementary examples or case studies
+  - Enhances comprehensive understanding but not critical for success
+- **Examples**:
+  - Alternative Frameworks `optional-reference` → Current Implementation (informative but not required)
+  - Historical Context `optional-reference` → Current Practices (background knowledge)
+  - Related Technologies `optional-reference` → Core Technology (broadens understanding)
+
+#### Contextual Relevance (Weight: 0.3-0.8, Dynamic)
+- **Definition**: Relationships whose importance varies significantly based on current implementation focus
+- **Characteristics**:
+  - Weight adjusts based on specific task goals and context
+  - May be critical for some scenarios and optional for others
+  - Importance determined by user objectives and environmental factors
+  - Dynamic prioritization based on situational requirements
+- **Weight Adjustment Factors**:
+  - **Current Task Focus**: Higher weight when directly relevant to active implementation
+  - **User Expertise Level**: Higher weight for beginners, lower for experts with existing knowledge
+  - **Implementation Phase**: Higher weight during planning, lower during detailed coding
+  - **Project Constraints**: Higher weight when relationship addresses current limitations
+- **Examples**:
+  - Performance Considerations `contextual-relevance` → Feature Implementation (critical for high-scale projects, optional for prototypes)
+  - Security Guidelines `contextual-relevance` → Internal Tools (high for public-facing, lower for internal-only)
+  - Accessibility Patterns `contextual-relevance` → UI Components (critical for public sites, optional for admin interfaces)
+
+### Systematic Weighting Assignment Guidelines
+
+Structured approach for assigning relationship weights based on semantic relationship types and contextual importance:
+
+#### Hierarchical Relationship Weighting
+
+**Inheritance Relationships (`inherits`, `inherited-by`)**
+- **Default Weight**: 0.9 (Critical Dependencies)
+- **Assignment Logic**: 
+  - Child inheriting from parent: 1.0 (critical - cannot understand child without parent)
+  - Parent listing children: 0.7 (supporting - helps understand scope and variations)
+- **Contextual Adjustments**:
+  - Increase to 1.0 when implementing child concepts
+  - Reduce to 0.8 for experienced users familiar with parent patterns
+
+**Composition Relationships (`composed-of`, `composes`)**
+- **Default Weight**: 0.95 (Critical Dependencies)
+- **Assignment Logic**:
+  - Parent understanding component: 1.0 (critical - composition requires component knowledge)
+  - Component understanding parent: 0.8 (supporting - provides context for component role)
+- **Contextual Adjustments**:
+  - Increase component → parent weight during integration phases
+  - Maintain high weight for complex compositional structures
+
+**Specialization Relationships (`specializes`, `generalized-by`)**
+- **Default Weight**: 0.8 (Supporting Context)
+- **Assignment Logic**:
+  - Specialization → general: 0.9 (high supporting - needs general concept foundation)
+  - General → specialization: 0.6 (moderate supporting - examples enhance understanding)
+- **Contextual Adjustments**:
+  - Increase when implementing specialized versions
+  - Reduce when general concept understanding is primary goal
+
+**Aggregation Relationships (`aggregates`, `part-of`)**
+- **Default Weight**: 0.6 (Supporting Context)
+- **Assignment Logic**:
+  - Aggregate → parts: 0.7 (supporting - understanding scope and components)
+  - Part → aggregate: 0.5 (moderate supporting - provides organizational context)
+- **Contextual Adjustments**:
+  - Increase during system design phases
+  - Reduce when focusing on individual component implementation
+
+#### Lateral Relationship Weighting
+
+**Similarity Relationships (`similar-to`)**
+- **Default Weight**: 0.5 (Optional References)
+- **Assignment Logic**: Symmetric 0.5 weight (provides comparative context and alternatives)
+- **Contextual Adjustments**:
+  - Increase to 0.7 when choosing between similar approaches
+  - Reduce to 0.3 when approach is already selected and implementation is underway
+
+**Complementarity Relationships (`complements`, `complemented-by`)**
+- **Default Weight**: 0.7 (Supporting Context)
+- **Assignment Logic**:
+  - Primary → complement: 0.8 (supporting - complement enhances primary)
+  - Complement → primary: 0.6 (moderate supporting - provides integration context)
+- **Contextual Adjustments**:
+  - Increase to 0.9 when implementing integrated solutions
+  - Reduce to 0.5 when focusing on individual component development
+
+**Alternative Relationships (`alternative-to`)**
+- **Default Weight**: 0.4 (Optional References)
+- **Assignment Logic**: Symmetric 0.4 weight (informative for decision-making)
+- **Contextual Adjustments**:
+  - Increase to 0.8 during architecture and approach selection phases
+  - Reduce to 0.2 when implementation approach is already committed
+
+**Sequence Relationships (`precedes`, `follows`)**
+- **Default Weight**: 0.85 (Critical Dependencies)
+- **Assignment Logic**:
+  - Prerequisite → dependent: 0.9 (critical - must understand prerequisite first)
+  - Dependent → prerequisite: 0.8 (supporting - provides context for dependency reasoning)
+- **Contextual Adjustments**:
+  - Maintain high weight during sequential implementation
+  - Reduce slightly when implementing non-sequential aspects
+
+#### Domain-Specific Weighting Considerations
+
+**Technical Implementation Domains**
+- **Architecture → Implementation**: 0.9 (critical foundation)
+- **Implementation → Testing**: 0.8 (high supporting for quality)
+- **Configuration → Runtime**: 0.95 (critical operational dependency)
+
+**User Experience Domains**
+- **User Research → Design**: 0.85 (critical input for design decisions)
+- **Design → Implementation**: 0.9 (critical specification for development)
+- **Accessibility → Components**: 0.7 (supporting for inclusive design)
+
+**Business Process Domains**
+- **Requirements → Implementation**: 0.95 (critical specification)
+- **Process → Validation**: 0.8 (supporting for quality assurance)
+- **Stakeholder Input → Design**: 0.75 (supporting for alignment)
 
 ### Filtering Strategies
 
-Using relationship weights to optimize context assembly:
+Advanced approaches for using relationship weights to optimize context assembly with cognitive load management:
 
-- **Depth-Based Filtering**: Including stronger relationships at greater traversal depths
-- **Context-Aware Selection**: Choosing relationships based on current implementation goals
-- **Cognitive Load Management**: Limiting relationship traversal to prevent information overload
-- **Priority-Based Assembly**: Assembling context starting with highest-weight relationships
+#### Depth-Based Filtering Strategies
+
+**Progressive Weight Thresholds**
+- **Depth 1**: Include all relationships ≥ 0.6 weight (supporting context and above)
+- **Depth 2**: Include relationships ≥ 0.7 weight (strong supporting context and above)
+- **Depth 3**: Include only relationships ≥ 0.8 weight (critical and near-critical only)
+- **Rationale**: Maintains comprehensive context at immediate level while preventing information overload at deeper traversal levels
+
+**Adaptive Depth Filtering**
+- **High Complexity Tasks**: Reduce thresholds by 0.1 at each depth (more context needed)
+- **Routine Tasks**: Increase thresholds by 0.1 at each depth (less context required)
+- **Expert Users**: Increase thresholds by 0.2 (assume existing knowledge)
+- **Novice Users**: Reduce thresholds by 0.1 (need more supporting context)
+
+#### Context-Aware Selection
+
+**Goal-Oriented Filtering**
+- **Implementation Focus**: Prioritize critical dependencies (≥ 0.8) and technical supporting context
+- **Learning Focus**: Include more optional references (≥ 0.3) for comprehensive understanding
+- **Decision-Making Focus**: Emphasize alternatives and comparisons (increase alternative relationship weights)
+- **Integration Focus**: Prioritize complementarity relationships and cross-domain connections
+
+**Dynamic Context Adjustment**
+- **Project Phase Sensitivity**:
+  - Planning Phase: Include more optional references and alternatives
+  - Implementation Phase: Focus on critical dependencies and supporting context
+  - Testing Phase: Emphasize validation and quality-related relationships
+  - Maintenance Phase: Prioritize operational and debugging relationships
+
+#### Cognitive Load Management
+
+**Information Budget Allocation**
+- **Primary Context** (60% of budget): Critical dependencies and direct supporting context
+- **Extended Context** (30% of budget): Strong supporting relationships and contextual relevance
+- **Enrichment Context** (10% of budget): Optional references and nice-to-have information
+
+**Overload Prevention Mechanisms**
+- **Maximum Relationship Count**: Limit total assembled relationships to 15-20 per context session
+- **Weight-Based Truncation**: When limits exceeded, remove lowest-weight relationships first
+- **Cluster-Based Grouping**: Group related low-weight relationships to reduce cognitive switching overhead
+- **Progressive Disclosure**: Present critical context first, with mechanisms to access supporting context on demand
+
+#### Priority-Based Assembly
+
+**Assembly Order Optimization**
+1. **Critical Dependencies** (Weight ≥ 0.8): Load first to establish foundation
+2. **Strong Supporting Context** (Weight 0.7-0.79): Load second to provide implementation guidance
+3. **Contextual Relevance** (Weight varies): Load based on current relevance calculation
+4. **Optional References** (Weight < 0.6): Load last and only if cognitive budget permits
+
+**Weight-Based Conflict Resolution**
+- **Duplicate Context**: When same information appears through multiple paths, use highest-weight path
+- **Contradictory Information**: Prioritize information from higher-weight relationships
+- **Resource Constraints**: When context budget is limited, maintain highest-weight relationships
+
+### Dynamic Weighting Approaches
+
+Context-sensitive relationship strength adjustment enabling adaptive context assembly:
+
+#### Context-Sensitive Weight Calculation
+
+**Base Weight Formula**:
+```
+Final Weight = Base Weight × Context Multiplier × User Multiplier × Phase Multiplier
+```
+
+**Context Multiplier Factors**:
+- **Direct Relevance**: 1.0-1.5 (relationship directly addresses current task)
+- **Indirect Relevance**: 0.8-1.2 (relationship provides supporting context)
+- **Tangential Relevance**: 0.5-0.8 (relationship loosely related to current task)
+- **No Current Relevance**: 0.3-0.6 (relationship not relevant to current focus)
+
+**User Multiplier Factors**:
+- **Expert Level**: 0.7-1.0 (experts need less supporting context)
+- **Intermediate Level**: 0.9-1.1 (standard weighting applies)
+- **Novice Level**: 1.1-1.4 (novices need more supporting context)
+
+**Phase Multiplier Factors**:
+- **Planning Phase**: Emphasize alternatives and options (multiply alternative relationships by 1.5)
+- **Implementation Phase**: Emphasize critical dependencies (multiply critical relationships by 1.2)
+- **Testing Phase**: Emphasize validation relationships (multiply testing-related relationships by 1.3)
+- **Maintenance Phase**: Emphasize operational relationships (multiply maintenance-related relationships by 1.4)
+
+#### Adaptive Weighting Algorithms
+
+**Usage Pattern Learning**
+- **Frequency Tracking**: Relationships frequently accessed together receive higher weights
+- **Success Correlation**: Relationships that lead to successful task completion receive weight increases
+- **Failure Pattern Recognition**: Relationships that lead to errors or confusion receive weight decreases
+- **Time-Based Decay**: Adjust weights based on recency of successful usage patterns
+
+**Contextual Pattern Recognition**
+- **Task Similarity**: Apply successful weighting patterns from similar previous tasks
+- **Domain Pattern Transfer**: Transfer effective weighting patterns between related domains
+- **User Behavior Analysis**: Adjust weights based on individual user's navigation and usage patterns
+- **Outcome-Based Optimization**: Continuously refine weights based on task success metrics
+
+#### Implementation Context Adjustment
+
+**Real-Time Context Assessment**
+- **Current Goal Analysis**: Analyze active task requirements to determine relevant relationship types
+- **Progress State Evaluation**: Adjust weights based on task completion stage and remaining requirements
+- **Knowledge Gap Detection**: Increase weights for relationships that address detected knowledge gaps
+- **Integration Complexity Assessment**: Adjust weights based on current system integration complexity
+
+**Dynamic Reweighting Triggers**
+- **Task Scope Changes**: Recalculate weights when task requirements evolve
+- **New Information Discovery**: Adjust weights when new relevant context is discovered
+- **Implementation Blockers**: Increase weights for relationships that might resolve current obstacles
+- **Quality Issues**: Emphasize validation and quality-related relationships when problems are detected
+
+#### Performance-Based Weight Optimization
+
+**Effectiveness Metrics**
+- **Context Assembly Time**: Optimize weights to minimize time to gather necessary context
+- **Implementation Success Rate**: Adjust weights to maximize task completion success
+- **Cognitive Load Indicators**: Monitor and optimize weights to prevent information overload
+- **User Satisfaction Measures**: Incorporate user feedback on context relevance and utility
+
+**Continuous Improvement Mechanisms**
+- **A/B Testing**: Compare different weighting strategies for similar tasks
+- **Machine Learning Integration**: Use ML algorithms to optimize weights based on historical data
+- **Expert Feedback Integration**: Incorporate domain expert input on relationship importance
+- **Community Intelligence**: Leverage collective usage patterns to refine weighting strategies
 
 ## Graph Navigation
 

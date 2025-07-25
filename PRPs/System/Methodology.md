@@ -129,13 +129,13 @@ Complex knowledge areas identified during feature detection should be systematic
 
 1. **Start** with target task file
 2. **Extract** frontmatter links: `up`, `feature`, `dependencies`, `related`
-3. **Follow** each link and extract their frontmatter links
-4. **Continue** recursively to depth 3 maximum
-5. **Resolve** dependency order: dependencies first, then up chain, then related
-6. **Load** complete content of all linked files
-<<<<<<< HEAD
-7. **Apply AI context engineering optimization** to assembled context
-8. **Provide** AI-optimized context to implementation AI
+3. **Apply relationship weighting** to determine link priorities and filtering thresholds
+4. **Follow** each link based on weight-filtered selection criteria
+5. **Continue** recursively to depth 3 maximum, applying depth-based weight filtering
+6. **Resolve** dependency order using weighted prioritization: dependencies first, then up chain, then related
+7. **Load** complete content of all linked files, applying cognitive load management
+8. **Apply AI context engineering optimization** to assembled context
+9. **Provide** weight-optimized, AI-optimized context to implementation AI
 
 ### AI Context Engineering Integration
 
@@ -174,9 +174,64 @@ The AI-optimized context assembly follows this enhanced process:
 4. **Pattern Recognition Preparation**: Structure content using consistent patterns and meta-pattern documentation
 5. **Inference Support Integration**: Ensure explicit relationships, causal chains, and reasoning scaffolds are present
 6. **Final Optimization**: Apply noise reduction and attention focus techniques for task-specific optimization
-=======
-7. **Provide** assembled context to implementation AI
->>>>>>> b7b8c36256179d4c310e1684da23819f4967b005
+
+### Relationship Weighting Integration
+
+The context assembly process leverages relationship weighting from [[Semantic Relationships.md]] to enable intelligent context prioritization and cognitive load management:
+
+#### Weight-Based Link Selection
+
+**Pre-Assembly Filtering**:
+- **Context Assessment**: Analyze current task requirements to determine contextual relevance multipliers
+- **User Profile Application**: Apply user expertise level adjustments to base relationship weights  
+- **Phase-Specific Adjustment**: Modify weights based on implementation phase (planning, development, testing, maintenance)
+- **Threshold Calculation**: Calculate dynamic filtering thresholds based on cognitive load budget and task complexity
+
+**Filtering Strategy Application**:
+- **Depth 1 Links**: Include relationships ≥ 0.6 adjusted weight (supporting context and above)
+- **Depth 2 Links**: Include relationships ≥ 0.7 adjusted weight (strong supporting context and critical dependencies)
+- **Depth 3 Links**: Include only relationships ≥ 0.8 adjusted weight (critical dependencies only)
+- **Adaptive Thresholds**: Adjust filtering thresholds based on available cognitive budget and context complexity
+
+#### Weighted Context Prioritization
+
+**Assembly Order Enhancement**:
+1. **Critical Dependencies** (Weight ≥ 0.8): Load first to establish foundational knowledge
+2. **Strong Supporting Context** (Weight 0.7-0.79): Load second to provide implementation guidance and patterns
+3. **Contextual Relevance** (Dynamic Weight): Load based on current task relevance calculation
+4. **Optional References** (Weight < 0.6): Load last and only if cognitive budget allows
+
+**Cognitive Load Management**:
+- **Information Budget Allocation**: Distribute context loading across Primary (60%), Extended (30%), and Enrichment (10%) budgets
+- **Weight-Based Truncation**: Remove lowest-weight relationships first when context limits are exceeded
+- **Progressive Disclosure**: Present critical relationships immediately with on-demand access to supporting context
+
+#### Dynamic Weight Calculation
+
+**Context-Sensitive Adjustment Formula**:
+```
+Final Weight = Base Weight × Context Multiplier × User Multiplier × Phase Multiplier
+```
+
+**Real-Time Weight Factors**:
+- **Task Relevance**: 1.0-1.5 multiplier for relationships directly addressing current implementation goals
+- **Expertise Adjustment**: 0.7-1.4 multiplier based on user knowledge level and domain familiarity
+- **Implementation Phase**: 1.2-1.5 multiplier for relationships critical to current development phase
+- **Cognitive Load State**: 0.8-1.2 multiplier based on current information processing capacity
+
+#### Integration with AI Context Engineering
+
+**Synergistic Optimization**:
+- **Weighted Information Sequencing**: Combine relationship weights with dependency-first ordering for optimal information presentation
+- **Prioritized Chunking**: Use relationship weights to determine optimal chunk boundaries and information grouping
+- **Focused Pattern Recognition**: Emphasize high-weight relationships in pattern templates and analogical frameworks
+- **Selective Noise Reduction**: Apply weight-based filtering to remove low-relevance information while preserving critical context
+
+**Enhanced Assembly Effectiveness**:
+- **Relevance Maximization**: Weight-based selection ensures assembled context directly supports task completion
+- **Cognitive Efficiency**: Relationship weights prevent information overload while maintaining comprehensive coverage
+- **Adaptive Context**: Dynamic weighting enables context assembly that adjusts to changing task requirements and user needs
+- **Quality Optimization**: High-weight relationships receive priority in conflict resolution and duplicate context scenarios
 
 ### Link Traversal Rules
 
