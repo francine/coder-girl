@@ -5,8 +5,8 @@
 type: task
 tags: [formatting-optimization, structured-markup, template-consistency]
 created: 2025-01-22
-updated: 2025-01-22
-status: todo
+updated: 2025-07-25
+status: done
 severity: major
 up: "[[AI Context Engineering.md]]"
 feature: "[[AI Context Optimization.md]]"
