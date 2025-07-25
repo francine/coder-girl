@@ -697,25 +697,333 @@ Final Weight = Base Weight × Context Multiplier × User Multiplier × Phase Mul
 - **Expert Feedback Integration**: Incorporate domain expert input on relationship importance
 - **Community Intelligence**: Leverage collective usage patterns to refine weighting strategies
 
-## Graph Navigation
+## Knowledge Graph Navigation Strategies
 
-### Traversal Patterns
+### Systematic Traversal Patterns
 
-Systematic approaches for navigating complex relationship networks:
+Comprehensive approaches for navigating complex semantic relationship networks to enable effective knowledge discovery, context exploration, and relationship pattern identification:
 
-- **Breadth-First Exploration**: Exploring all relationships at current depth before going deeper
-- **Depth-First Investigation**: Following single relationship chains to maximum depth
-- **Weighted Traversal**: Following strongest relationships first regardless of graph position
-- **Goal-Oriented Pathfinding**: Finding optimal paths between specific knowledge elements
+#### Breadth-First Exploration
 
-### Context Discovery
+Systematic exploration that examines all relationships at the current depth level before progressing to deeper connections, optimizing for comprehensive coverage and pattern recognition:
 
-Using relationship networks to discover relevant but non-obvious connections:
+**Core Principles:**
+- **Level-by-Level Processing**: Examine all immediate relationships before following any deeper connections
+- **Comprehensive Coverage**: Ensure no relationships at current depth are missed before proceeding
+- **Pattern Recognition**: Identify relationship clusters and patterns at each depth level
+- **Context Completeness**: Build comprehensive understanding at each level before specialization
 
-- **Transitive Relationships**: Finding indirect connections through intermediary concepts
-- **Cluster Identification**: Discovering tightly connected groups of related concepts
-- **Bridge Concepts**: Identifying knowledge elements that connect otherwise separate clusters
-- **Emerging Patterns**: Recognizing new relationship patterns that develop over time
+**Implementation Algorithm:**
+```yaml
+breadth_first_traversal:
+  initialization:
+    - queue: [starting_concept]
+    - visited_set: empty
+    - depth_levels: {}
+    - current_depth: 0
+  
+  processing:
+    while queue not empty:
+      - current_concept = dequeue()
+      - if current_concept in visited_set: continue
+      - add current_concept to visited_set
+      - process current_concept at current_depth
+      - get all immediate relationships
+      - add unvisited relationships to queue
+      - increment depth when level complete
+```
+
+**Usage Guidelines:**
+- **Comprehensive Discovery**: Use when need to understand all related concepts before specializing
+- **Pattern Identification**: Optimal for finding relationship clusters and network structures
+- **Context Building**: Effective for building broad contextual understanding
+- **Parallel Processing**: Enables simultaneous exploration of multiple relationship paths
+
+**Decision Criteria:**
+- **Broad Understanding Required**: When need comprehensive view before deep dive
+- **Multiple Paths Exploration**: When several relationship directions are relevant
+- **Pattern Discovery**: When looking for emergent structures and clusters
+- **Resource Constraints**: When need to limit deep traversal due to cognitive load
+
+#### Depth-First Investigation
+
+Intensive exploration that follows single relationship chains to maximum depth before exploring alternative paths, optimizing for thorough understanding of specific knowledge pathways:
+
+**Core Principles:**
+- **Path Completion**: Follow single relationship chains to their logical conclusion
+- **Thorough Investigation**: Exhaust each path before exploring alternatives
+- **Dependency Resolution**: Ensure all prerequisites are fully understood in sequence
+- **Expert-Level Understanding**: Build deep expertise in specific knowledge domains
+
+**Implementation Algorithm:**
+```yaml
+depth_first_traversal:
+  initialization:
+    - stack: [starting_concept]
+    - visited_set: empty
+    - path_stack: []
+    - max_depth: configurable
+  
+  processing:
+    while stack not empty:
+      - current_concept = pop_stack()
+      - if current_concept in visited_set: continue
+      - add current_concept to visited_set
+      - push current_concept to path_stack
+      - process current_concept with full path context
+      - get strongest unvisited relationship
+      - push relationship target to stack
+      - backtrack when path exhausted
+```
+
+**Usage Guidelines:**
+- **Deep Expertise**: Use when need thorough understanding of specific knowledge chain
+- **Sequential Implementation**: Optimal for following implementation dependencies
+- **Specialization**: Effective for building expert-level knowledge in focused areas
+- **Troubleshooting**: Ideal for following cause-effect chains and debugging
+
+**Decision Criteria:**
+- **Deep Understanding Required**: When need comprehensive knowledge of specific domain
+- **Sequential Dependencies**: When concepts must be understood in specific order
+- **Expert Development**: When building specialized expertise in focused area
+- **Problem Resolution**: When need to follow complex causal or implementation chains
+
+#### Hybrid Traversal Approaches
+
+Adaptive navigation strategies that combine breadth-first and depth-first approaches based on relationship characteristics and exploration goals:
+
+**Adaptive Depth-Breadth Strategy:**
+- **Critical Dependencies**: Apply depth-first for critical relationships (weight ≥ 0.8)
+- **Supporting Context**: Use breadth-first for supporting relationships (weight 0.6-0.79)
+- **Optional References**: Shallow breadth exploration for optional relationships (weight < 0.6)
+- **Dynamic Switching**: Adjust strategy based on discovered relationship importance
+
+**Implementation Framework:**
+```yaml
+hybrid_traversal:
+  relationship_strategy_mapping:
+    critical_dependencies:
+      strategy: "depth_first"
+      max_depth: 4
+      priority: 1
+    
+    supporting_context:
+      strategy: "breadth_first" 
+      max_depth: 2
+      priority: 2
+    
+    optional_references:
+      strategy: "breadth_limited"
+      max_depth: 1
+      priority: 3
+  
+  dynamic_adaptation:
+    - assess_relationship_weight
+    - select_appropriate_strategy
+    - apply_strategy_with_limits
+    - evaluate_results_and_adapt
+```
+
+**Contextual Navigation Patterns:**
+
+**Goal-Oriented Hybrid:**
+- **Implementation Focus**: Depth-first for critical dependencies, breadth-first for integration patterns
+- **Learning Focus**: Breadth-first for understanding scope, depth-first for mastery
+- **Decision-Making Focus**: Breadth-first for alternatives, depth-first for chosen path
+- **Troubleshooting Focus**: Depth-first for problem chains, breadth-first for solution patterns
+
+**Domain-Aware Hybrid:**
+- **Technical Domains**: Depth-first for architectural dependencies, breadth-first for implementation options
+- **User Experience Domains**: Breadth-first for user journey, depth-first for interaction details
+- **Business Process Domains**: Breadth-first for process overview, depth-first for procedure details
+
+### Weighted Traversal Strategies
+
+Advanced navigation approaches that prioritize relationship traversal based on strength indicators and contextual importance, enabling intelligent context assembly and cognitive load management:
+
+#### Strength-Based Prioritization
+
+Systematic approaches for using relationship weights to optimize navigation paths and context discovery:
+
+**Priority Queue Navigation:**
+```yaml
+weighted_priority_traversal:
+  initialization:
+    - priority_queue: [(weight, concept)]
+    - visited_concepts: set()
+    - context_budget: configurable_limit
+    - weight_threshold: configurable_minimum
+  
+  processing:
+    while priority_queue not empty and budget available:
+      - current_weight, current_concept = dequeue_highest_priority()
+      - if current_weight < weight_threshold: break
+      - if current_concept in visited_concepts: continue
+      - process_concept_with_weight_context()
+      - add_relationships_to_queue_with_weights()
+      - update_context_budget()
+```
+
+**Weight-Based Path Selection:**
+- **Critical Path Following**: Always follow relationships with weight ≥ 0.8 first
+- **Supporting Context Integration**: Include relationships with weight 0.6-0.79 when budget permits
+- **Optional Enhancement**: Add relationships with weight < 0.6 only if specific goals require them
+- **Dynamic Thresholding**: Adjust weight thresholds based on available cognitive budget
+
+#### Contextual Weight Adjustment
+
+Dynamic relationship strength modification based on current implementation focus and user goals:
+
+**Context-Sensitive Weighting:**
+```yaml
+contextual_weight_calculation:
+  base_weight_factors:
+    - semantic_relationship_type: 0.3
+    - structural_importance: 0.3  
+    - usage_frequency: 0.2
+    - recency: 0.2
+  
+  context_multipliers:
+    implementation_phase:
+      planning: {alternatives: 1.5, dependencies: 1.2}
+      coding: {dependencies: 1.4, examples: 1.3}
+      testing: {validation: 1.5, examples: 1.2}
+      deployment: {configuration: 1.4, troubleshooting: 1.3}
+    
+    user_expertise:
+      novice: {supporting_context: 1.3, examples: 1.4}
+      intermediate: {standard_weights: 1.0}
+      expert: {critical_only: 1.2, supporting_context: 0.8}
+```
+
+**Goal-Oriented Weight Optimization:**
+- **Learning Goals**: Increase weights for educational relationships and examples
+- **Implementation Goals**: Emphasize technical dependencies and validation patterns
+- **Decision-Making Goals**: Boost alternative approaches and comparison relationships
+- **Maintenance Goals**: Prioritize operational and troubleshooting relationships
+
+#### Cognitive Load-Aware Navigation
+
+Navigation strategies that balance comprehensive coverage with cognitive processing limitations:
+
+**Budget-Based Traversal:**
+```yaml
+cognitive_load_management:
+  budget_allocation:
+    primary_context: 60%  # Critical dependencies and direct supporting context
+    extended_context: 30%  # Strong supporting and contextual relevance
+    enrichment_context: 10%  # Optional references and nice-to-have information
+  
+  load_management_rules:
+    - max_total_concepts: 20
+    - max_relationship_depth: 4
+    - weight_based_truncation: true
+    - cluster_based_grouping: true
+    - progressive_disclosure: enabled
+```
+
+**Overload Prevention Mechanisms:**
+- **Relationship Count Limits**: Cap total assembled relationships at cognitive capacity
+- **Weight-Based Truncation**: Remove lowest-weight relationships when limits exceeded  
+- **Cluster Grouping**: Group related low-weight relationships to reduce switching overhead
+- **Progressive Disclosure**: Present critical context first with on-demand access to supporting information
+
+### Context Discovery Mechanisms
+
+Advanced approaches for finding relevant but non-obvious connections through semantic relationship networks:
+
+#### Transitive Relationship Analysis
+
+Systematic identification of indirect connections through intermediary concepts that reveal hidden knowledge patterns:
+
+**Multi-Hop Connection Discovery:**
+```yaml
+transitive_analysis:
+  connection_patterns:
+    two_hop_connections:
+      - A → B → C (A indirectly related to C through B)
+      - identify when B provides meaningful bridge
+      - validate semantic coherence across chain
+    
+    three_hop_chains:
+      - A → B → C → D (extended indirect relationships)
+      - require higher weight thresholds for inclusion
+      - focus on critical dependencies chains
+  
+  semantic_validation:
+    - verify relationship types are compatible
+    - ensure transitive meaning preservation
+    - validate that indirect connection adds value
+    - check cognitive load impact
+```
+
+**Bridge Concept Identification:**
+- **Structural Bridges**: Concepts that connect otherwise separate knowledge clusters
+- **Semantic Bridges**: Concepts that translate between different knowledge domains
+- **Temporal Bridges**: Concepts that connect different phases or stages of processes
+- **Functional Bridges**: Concepts that link different capabilities or feature areas
+
+#### Cluster Analysis and Pattern Recognition
+
+Advanced techniques for discovering emergent organizational structures within semantic relationship networks:
+
+**Relationship Density Analysis:**
+```yaml
+cluster_identification:
+  density_metrics:
+    - relationship_count_per_concept
+    - average_relationship_weight_in_cluster
+    - internal_vs_external_connection_ratio
+    - semantic_coherence_score
+  
+  clustering_algorithms:
+    - weight_based_clustering: group by strong relationship patterns
+    - semantic_clustering: group by relationship type similarity  
+    - usage_clustering: group by frequent co-access patterns
+    - temporal_clustering: group by recent relationship creation
+```
+
+**Emergent Pattern Detection:**
+- **New Relationship Types**: Identify recurring but unlabeled relationship patterns
+- **Evolving Clusters**: Detect knowledge areas that are growing and connecting in new ways
+- **Usage Pattern Evolution**: Recognize changes in how relationships are traversed
+- **Semantic Drift**: Identify relationships whose meaning is evolving over time
+
+#### Goal-Oriented Pathfinding
+
+Intelligent navigation strategies for finding optimal paths between specific knowledge elements based on implementation objectives:
+
+**Pathfinding Algorithms:**
+```yaml
+goal_oriented_navigation:
+  pathfinding_strategies:
+    shortest_path:
+      algorithm: "weighted_dijkstra"
+      optimization: "minimize_traversal_cost"
+      use_case: "quick_context_assembly"
+    
+    highest_value_path:
+      algorithm: "weighted_a_star"  
+      optimization: "maximize_relationship_value"
+      use_case: "comprehensive_understanding"
+    
+    balanced_path:
+      algorithm: "multi_objective_optimization"
+      optimization: "balance_cost_and_value"
+      use_case: "practical_implementation"
+```
+
+**Context-Aware Path Selection:**
+- **Implementation Context**: Optimize paths for current development phase and goals
+- **User Expertise**: Adjust path complexity based on user knowledge level
+- **Time Constraints**: Balance thoroughness with available time and cognitive budget
+- **Quality Requirements**: Weight paths based on implementation quality needs
+
+**Pathfinding Heuristics:**
+- **Relationship Strength Heuristic**: Prefer paths through stronger relationships
+- **Semantic Coherence Heuristic**: Favor paths that maintain semantic consistency
+- **Depth Penalty Heuristic**: Apply cost penalties for excessive depth
+- **Cluster Cohesion Heuristic**: Prefer paths that maintain knowledge cluster integrity
 
 ## Features
 

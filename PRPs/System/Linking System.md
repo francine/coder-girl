@@ -174,7 +174,56 @@ feature: "[[Auth System Feature.md]]"  # Parent feature context
 
 ## Context Assembly Through Links
 
-### Link Resolution Algorithm
+### Enhanced Link Resolution Algorithm
+
+Integration of knowledge graph navigation strategies with traditional context assembly for intelligent, adaptive context building:
+
+#### Strategic Navigation-Aware Assembly
+
+**Phase 1: Navigation Strategy Selection**
+```yaml
+assembly_strategy_selection:
+  context_analysis:
+    - assess_task_complexity
+    - determine_user_expertise_level  
+    - evaluate_time_constraints
+    - identify_implementation_goals
+  
+  strategy_mapping:
+    comprehensive_discovery: "breadth_first_exploration"
+    deep_expertise_building: "depth_first_investigation"
+    balanced_implementation: "hybrid_traversal"
+    quick_context_assembly: "weighted_priority_traversal"
+```
+
+**Phase 2: Weighted Context Assembly**
+```yaml
+weighted_context_assembly:
+  initialization:
+    - parse_target_file_frontmatter
+    - extract_all_relationship_types
+    - calculate_relationship_weights
+    - apply_contextual_weight_adjustments
+    - set_cognitive_load_budget
+  
+  priority_based_resolution:
+    1. critical_dependencies: weight >= 0.8, depth <= 4
+    2. supporting_context: weight 0.6-0.79, depth <= 2  
+    3. contextual_relevance: dynamic weight, depth <= 3
+    4. optional_references: weight < 0.6, depth = 1
+    5. feature_context: complete inclusion
+    6. target_file: final integration
+```
+
+**Phase 3: Navigation Pattern Application**
+- **Breadth-First**: When comprehensive understanding needed before specialization
+- **Depth-First**: When following critical dependency chains or implementation sequences
+- **Hybrid**: When balancing breadth and depth based on relationship weights
+- **Weighted Priority**: When cognitive load management is primary concern
+
+#### Traditional Link Resolution Algorithm (Legacy)
+
+Maintained for backward compatibility and simple context assembly scenarios:
 
 1. **Parse target file** frontmatter
 2. **Extract all link types** (up, related, dependencies, feature)
@@ -185,9 +234,79 @@ feature: "[[Auth System Feature.md]]"  # Parent feature context
 7. **Deduplicate** files appearing multiple times
 8. **Order by dependency** hierarchy
 
+### Navigation Strategy Integration Examples
+
+#### Strategy-Driven Context Assembly
+
+**Breadth-First Exploration Example:**
+```text
+Target: 🟡 Task 08 - Document Knowledge Graph Navigation Strategies.md
+
+Navigation Strategy: Breadth-First (comprehensive understanding)
+Weight Threshold: 0.6+ (supporting context and above)
+
+Assembly Order:
+Level 1 (Immediate Relationships):
+├── up: [[Semantic Relationships.md]] (weight: 0.9)
+├── feature: [[Semantic Linking Enhancement.md]] (weight: 1.0)
+└── related: [[🟡 Task 07 - Create Relationship Weighting Guidelines.md]] (weight: 0.8)
+
+Level 2 (Secondary Relationships):
+├── [[Knowledge Organization.md]] (via up chain, weight: 0.8)
+├── [[AI Context Engineering.md]] (via dependencies, weight: 0.7)
+└── [[Linking System.md]] (via related, weight: 0.6)
+
+Level 3 (Tertiary Context):
+└── Additional supporting relationships as budget permits
+```
+
+**Depth-First Investigation Example:**
+```text
+Target: 🔴 Task 01 - Implement JWT Middleware.md
+
+Navigation Strategy: Depth-First (critical dependency chain)
+Weight Threshold: 0.8+ (critical dependencies)
+
+Assembly Order:
+1. Strongest dependency chain:
+   🔴 Task 01 → [[Authentication Backend.md]] (1.0) 
+   → [[Security Patterns.md]] (0.9) 
+   → [[Cryptographic Standards.md]] (0.8)
+
+2. Secondary critical chain:
+   [[Authentication Backend.md]] → [[Database Schema.md]] (0.95)
+   → [[User Entity Definition.md]] (0.9)
+
+3. Feature context:
+   [[Auth System Feature.md]] (complete inclusion)
+
+4. Target integration with full dependency context
+```
+
+**Hybrid Traversal Example:**
+```text
+Target: 🟠 Task 15 - Optimize API Performance.md
+
+Navigation Strategy: Hybrid (balanced approach)
+Weight-Based Strategy Selection:
+
+Critical Dependencies (Depth-First, weight ≥ 0.8):
+├── [[Database Optimization.md]] (0.95) → depth 3
+├── [[Caching Strategies.md]] (0.9) → depth 2
+└── [[Load Balancing.md]] (0.85) → depth 2
+
+Supporting Context (Breadth-First, weight 0.6-0.79):
+├── [[Monitoring Patterns.md]] (0.7) → depth 1
+├── [[Testing Strategies.md]] (0.65) → depth 1
+└── [[Deployment Patterns.md]] (0.6) → depth 1
+
+Optional References (Limited, weight < 0.6):
+└── [[Alternative Frameworks.md]] (0.4) → excluded due to budget
+```
+
 ### Link Chain Examples
 
-#### Simple Chain
+#### Simple Chain (Traditional)
 
 ```text
 🟡 Task 05 - Add User Validation.md
