@@ -231,25 +231,175 @@ Non-hierarchical connections between peer-level concepts with specific semantic 
 3. **Orphaned Relationship Cleanup**: Identify and resolve relationships where referenced concepts no longer exist
 4. **Performance Impact Assessment**: Ensure relationship networks remain navigable and don't exceed complexity thresholds
 
-## Bidirectional Linking
+## Bidirectional Linking Conventions
 
-### Reciprocal Relationships
+### Symmetric Relationship Patterns
 
-Establishing two-way connections that can be navigated in both directions:
+Relationships where A→B implies B→A with identical semantic meaning and navigation experience:
 
-- **Symmetric Links**: Relationships where A→B implies B→A with same meaning
-- **Asymmetric Links**: Relationships where A→B has different meaning than B→A  
-- **Inverse Relationships**: Explicitly defined opposite relationships (e.g., "implements" / "implemented-by")
-- **Contextual Reciprocity**: Relationships that change meaning based on navigation direction
+#### Similar-To Relationships
+- **Convention**: `similar-to` relationships are always symmetric
+- **Implementation**: When A links to B as `similar-to`, B automatically gets `similar-to` link to A
+- **Semantic Meaning**: Both concepts share comparable characteristics and approaches
+- **Navigation Experience**: Users see identical relationship descriptions from either direction
+- **Example**: JWT Authentication similar-to Session Authentication (bidirectional with same meaning)
+
+#### Alternative-To Relationships  
+- **Convention**: `alternative-to` relationships maintain symmetric meaning
+- **Implementation**: Alternative relationships automatically create reciprocal links
+- **Semantic Meaning**: Both concepts solve the same problem using different approaches
+- **Navigation Experience**: Users see equivalent choice options from either direction
+- **Example**: SQL Database alternative-to NoSQL Database (both are alternatives to each other)
+
+#### Complementarity Relationships
+- **Convention**: `complements` relationships can be symmetric when both concepts equally enhance each other
+- **Implementation**: Symmetric complementarity creates bidirectional `complements` links
+- **Semantic Meaning**: Both concepts provide mutual enhancement when used together
+- **Navigation Experience**: Users see synergistic benefits described from both perspectives
+- **Example**: Caching complements Database Optimization (and vice versa for symmetric cases)
+
+### Asymmetric Relationship Patterns
+
+Relationships where A→B has different semantic meaning than B→A while maintaining logical consistency:
+
+#### Precedes-Follows Sequential Relationships
+- **Forward Convention**: A `precedes` B indicates temporal or logical priority
+- **Reverse Convention**: B `follows` A indicates dependency on predecessor
+- **Implementation**: `precedes` links automatically generate `follows` reverse links
+- **Semantic Distinction**: 
+  - Precedes: "This concept establishes foundation for the target"
+  - Follows: "This concept builds upon the prerequisite"
+- **Navigation Experience**: Different perspectives on sequential relationship
+- **Example**: Database Schema precedes API Implementation; API Implementation follows Database Schema
+
+#### Inherits-Inherited-By Hierarchical Relationships
+- **Forward Convention**: Child `inherits` from Parent indicates property acquisition
+- **Reverse Convention**: Parent `inherited-by` Child indicates property propagation
+- **Implementation**: Inheritance links automatically create reverse inherited-by relationships
+- **Semantic Distinction**:
+  - Inherits: "This concept acquires properties from the parent"
+  - Inherited-by: "This concept provides properties to the child"
+- **Navigation Experience**: Different viewpoints on hierarchical inheritance
+- **Example**: JWT Authentication inherits from Authentication Patterns; Authentication Patterns inherited-by JWT Authentication
+
+#### Composed-Of-Composes Structural Relationships
+- **Forward Convention**: Parent `composed-of` Child indicates structural dependency
+- **Reverse Convention**: Child `composes` Parent indicates contribution to whole
+- **Implementation**: Composition links automatically generate reverse composition relationships
+- **Semantic Distinction**:
+  - Composed-of: "This complex concept requires the component as integral part"
+  - Composes: "This component is essential element of the complex concept"
+- **Navigation Experience**: Whole-to-part vs part-to-whole perspectives
+- **Example**: User Registration Feature composed-of User Validation Logic; User Validation Logic composes User Registration Feature
+
+### Inverse Relationship Frameworks
+
+Explicitly defined opposite relationships with automated reciprocal maintenance:
+
+#### Specializes-Generalized-By Relationships
+- **Forward Relationship**: Child `specializes` Parent (specific implementation of general concept)
+- **Inverse Relationship**: Parent `generalized-by` Child (general concept implemented specifically)
+- **Automated Maintenance**: Creating specialization automatically creates generalization reverse link
+- **Semantic Opposition**: Specialization represents focus and constraint; generalization represents abstraction and scope
+- **Consistency Rules**: 
+  - Child must maintain parent's core functionality
+  - Parent must support child's specialized requirements
+  - Behavioral substitutability required in both directions
+- **Example**: OAuth Authentication specializes Authentication Backend; Authentication Backend generalized-by OAuth Authentication
+
+#### Aggregates-Part-Of Organizational Relationships
+- **Forward Relationship**: Parent `aggregates` Child (contains as manageable collection)
+- **Inverse Relationship**: Child `part-of` Parent (belongs to organizational grouping)
+- **Automated Maintenance**: Aggregation links automatically generate part-of relationships
+- **Semantic Opposition**: Aggregation emphasizes coordination responsibility; part-of emphasizes membership context
+- **Consistency Rules**:
+  - Children maintain independence within parent context
+  - Parent provides coordination without control
+  - Loose coupling preserved in both directions
+- **Example**: Authentication Feature aggregates Login Task; Login Task part-of Authentication Feature
+
+#### Complements-Complemented-By Synergistic Relationships
+- **Forward Relationship**: A `complements` B (A enhances B's capabilities)
+- **Inverse Relationship**: B `complemented-by` A (B receives enhancement from A)
+- **Automated Maintenance**: Complement links generate complemented-by reverse relationships
+- **Semantic Opposition**: Complement emphasizes enhancement provision; complemented-by emphasizes enhancement reception
+- **Consistency Rules**:
+  - Enhancement must be bidirectional or clearly asymmetric
+  - Functional synergy must exist when concepts are combined
+  - No overlap in core capabilities
+- **Example**: Input Validation complements Security Middleware; Security Middleware complemented-by Input Validation
+
+### Contextual Reciprocity Patterns
+
+Relationships where semantic meaning adapts based on navigation direction and implementation context:
+
+#### Context-Sensitive Implementation Relationships
+- **Definition**: Relationships that emphasize different aspects based on current focus and navigation direction
+- **Implementation Approach**: Single relationship type with context-aware semantic rendering
+- **Context Variables**: Current implementation goal, user role, domain focus, temporal context
+- **Dynamic Semantics**: Emphasis shifts while maintaining core relationship validity
+
+#### Goal-Oriented Navigation Adaptation
+- **Forward Context**: When navigating from A to B, emphasize how A establishes foundation for B
+- **Reverse Context**: When navigating from B to A, emphasize how B builds upon or utilizes A
+- **Implementation**: Context detection based on navigation history and current implementation objectives
+- **Example Pattern**: 
+  - Database Schema → API Endpoints: "Schema provides data structure for API design"
+  - API Endpoints → Database Schema: "API requirements inform schema optimization"
+
+#### Role-Based Perspective Adaptation
+- **Developer Context**: Emphasize implementation dependencies and technical relationships
+- **User Context**: Emphasize functional relationships and user experience implications  
+- **Maintainer Context**: Emphasize operational dependencies and maintenance implications
+- **Implementation**: Role detection and relationship description adaptation
+- **Example**: Authentication Backend relationship rendering varies by user role
+
+### Automated Consistency Validation
+
+Comprehensive systems for detecting and resolving bidirectional relationship conflicts:
+
+#### Bidirectional Consistency Detection
+- **Orphaned Relationship Detection**: Identify one-way relationships that should be bidirectional
+- **Type Mismatch Detection**: Find relationships where forward and reverse types don't align properly
+- **Semantic Conflict Detection**: Identify relationships with contradictory meanings in different directions
+- **Missing Inverse Detection**: Find inverse relationships that should exist but are missing
+
+#### Automated Relationship Maintenance
+- **Reciprocal Link Creation**: Automatically generate appropriate reverse relationships
+- **Consistency Enforcement**: Prevent relationship creation that would violate bidirectional conventions
+- **Update Propagation**: Ensure relationship changes reflect appropriately in both directions
+- **Orphan Resolution**: Provide automated suggestions for completing incomplete bidirectional relationships
+
+#### Conflict Resolution Patterns
+- **Priority-Based Resolution**: Use relationship strength and criticality to resolve conflicts
+- **Context-Aware Resolution**: Apply contextual information to resolve ambiguous relationship conflicts
+- **User-Guided Resolution**: Provide clear interfaces for manual conflict resolution when automated approaches are insufficient
+- **Validation Feedback**: Clear reporting of detected conflicts and resolution actions taken
+
+### Bidirectional Relationship Implementation Guidelines
+
+#### Relationship Creation Best Practices
+1. **Assess Bidirectionality**: Determine if relationship should be symmetric, asymmetric, or contextual
+2. **Choose Appropriate Pattern**: Select from symmetric, asymmetric, inverse, or contextual patterns
+3. **Validate Semantic Consistency**: Ensure forward and reverse relationships maintain logical coherence
+4. **Implement Automation**: Configure automated reciprocal relationship creation and maintenance
+5. **Test Navigation**: Verify that bidirectional navigation provides appropriate semantic experience
+
+#### Maintenance Procedures
+1. **Regular Consistency Audits**: Systematic checking for bidirectional relationship integrity
+2. **Automated Monitoring**: Continuous detection of relationship inconsistencies and conflicts
+3. **Update Propagation Verification**: Ensure relationship changes properly propagate bidirectionally
+4. **Performance Impact Assessment**: Monitor bidirectional relationship impact on system performance
+5. **User Experience Validation**: Verify bidirectional navigation supports user goals effectively
 
 ### Link Consistency
 
-Maintaining coherent relationship patterns across the knowledge graph:
+Enhanced coherent relationship patterns across the knowledge graph:
 
-- **Relationship Validation**: Ensuring bidirectional links are properly maintained
-- **Orphan Detection**: Identifying and resolving one-way relationships that should be bidirectional
-- **Type Consistency**: Verifying that relationship types match on both ends
-- **Update Propagation**: Ensuring changes to relationships are reflected in both directions
+- **Relationship Validation**: Ensuring bidirectional links are properly maintained using automated consistency detection
+- **Orphan Detection**: Identifying and resolving one-way relationships that should be bidirectional through systematic scanning
+- **Type Consistency**: Verifying that relationship types match appropriately on both ends using semantic validation rules
+- **Update Propagation**: Ensuring changes to relationships are reflected in both directions through automated maintenance systems
 
 ## Relationship Weighting
 
