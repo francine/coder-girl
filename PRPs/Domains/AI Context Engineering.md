@@ -785,9 +785,217 @@ This approach builds upon the principles established in [[Security Foundations.m
 
 ## Context Assembly Optimization
 
+### Context Filtering Strategies
+
+Comprehensive approaches to intelligent context reduction that preserve essential information while minimizing cognitive load through systematic filtering based on implementation goals, AI processing capabilities, and task-specific requirements:
+
+#### Need-Based Assembly Approaches
+
+Strategic context selection that includes only information relevant to current implementation goals and task requirements, eliminating unnecessary context that impedes AI processing:
+
+**Core Principles:**
+- **Goal-Driven Selection**: Filter context based on specific implementation objectives and success criteria
+- **Task-Specific Relevance**: Include only information that directly supports current task completion
+- **Implementation Phase Alignment**: Adjust context based on current development phase (planning, coding, testing, deployment)
+- **Capability-Focused Filtering**: Select context that matches AI processing capabilities and constraints
+
+**Implementation Framework:**
+```yaml
+need_based_assembly:
+  goal_analysis:
+    - identify_primary_objectives: define specific implementation goals
+    - map_success_criteria: establish measurable completion indicators
+    - assess_task_complexity: determine information requirements
+    - evaluate_time_constraints: factor in available cognitive budget
+  
+  relevance_filtering:
+    - direct_relevance: information essential for goal achievement
+    - supporting_relevance: information that enhances implementation quality
+    - contextual_relevance: background information that prevents errors
+    - exclude_tangential: remove information not related to current goals
+  
+  adaptive_selection:
+    - phase_based_filtering: adjust context based on development phase
+    - expertise_adjustment: modify context based on user knowledge level
+    - constraint_consideration: factor in technical and business limitations
+    - feedback_integration: refine filtering based on implementation outcomes
+```
+
+**AI Processing Benefits:**
+- Reduces information overload by eliminating irrelevant context
+- Enables focused attention on task-critical information
+- Improves processing speed through reduced context window usage
+- Supports goal-oriented reasoning and decision-making
+
+**Implementation Examples:**
+- **Authentication Implementation**: Include only security patterns, authentication libraries, and session management - exclude unrelated database optimization or UI styling
+- **Database Migration**: Focus on schema changes, data integrity, and migration procedures - exclude frontend components and API documentation
+- **Testing Implementation**: Emphasize testing frameworks, validation patterns, and quality assurance - exclude deployment configurations and monitoring setup
+
+#### Progressive Disclosure Mechanisms
+
+Layered context presentation that adds information complexity as AI understanding deepens or task requirements expand, preventing cognitive overload while ensuring comprehensive coverage:
+
+**Core Principles:**
+- **Layered Information Architecture**: Present context in increasing levels of detail and complexity
+- **Understanding-Based Progression**: Add context layers based on demonstrated comprehension of previous levels
+- **Task Complexity Alignment**: Scale context disclosure to match evolving task complexity requirements
+- **Cognitive Load Management**: Prevent information overload through systematic context layer control
+
+**Progressive Disclosure Framework:**
+```yaml
+progressive_disclosure:
+  layer_definition:
+    foundation_layer:
+      content: core_concepts_and_basic_relationships
+      complexity: minimal_detail_maximum_context
+      purpose: establish_conceptual_scaffolding
+      cognitive_load: 20%
+    
+    implementation_layer:
+      content: specific_procedures_and_technical_details
+      complexity: moderate_detail_focused_implementation
+      purpose: enable_direct_task_execution
+      cognitive_load: 50%
+    
+    integration_layer:
+      content: advanced_patterns_and_edge_cases
+      complexity: comprehensive_detail_with_exceptions
+      purpose: handle_complex_scenarios_and_optimization
+      cognitive_load: 30%
+  
+  progression_triggers:
+    - understanding_validation: verify comprehension before advancing
+    - complexity_assessment: evaluate task complexity evolution
+    - performance_monitoring: track AI processing effectiveness
+    - explicit_request: respond to direct requests for additional detail
+```
+
+**AI Processing Benefits:**
+- Prevents cognitive overload through controlled information introduction
+- Enables knowledge building through systematic progression
+- Supports adaptive learning based on processing capability
+- Facilitates context window optimization through layered loading
+
+**Disclosure Patterns:**
+- **Conceptual Progression**: Abstract Principles → Specific Patterns → Implementation Details → Advanced Optimizations
+- **Dependency Progression**: Prerequisites → Core Implementation → Integration Points → Edge Cases
+- **Complexity Progression**: Basic Usage → Standard Patterns → Advanced Techniques → Expert Optimizations
+
+#### Relevance Scoring Systems
+
+Quantitative approaches to prioritizing context elements based on task-specific importance, relationship strength, and AI processing effectiveness:
+
+**Core Principles:**
+- **Multi-Dimensional Scoring**: Evaluate context relevance across multiple independent dimensions
+- **Dynamic Weight Adjustment**: Modify relevance scores based on current task context and goals
+- **Relationship Strength Integration**: Incorporate semantic relationship weights into relevance calculations
+- **Performance-Based Optimization**: Continuously refine scoring based on AI processing outcomes
+
+**Relevance Scoring Framework:**
+```yaml
+relevance_scoring:
+  scoring_dimensions:
+    task_relevance:
+      weight: 0.4
+      factors: [goal_alignment, implementation_necessity, success_impact]
+      scale: 0.0_to_1.0
+    
+    relationship_strength:
+      weight: 0.3
+      factors: [semantic_connection_type, dependency_criticality, frequency_of_access]
+      scale: 0.0_to_1.0
+    
+    processing_efficiency:
+      weight: 0.2
+      factors: [ai_comprehension_speed, context_window_usage, inference_accuracy]
+      scale: 0.0_to_1.0
+    
+    temporal_relevance:
+      weight: 0.1
+      factors: [recency_of_updates, usage_frequency, maintenance_activity]
+      scale: 0.0_to_1.0
+  
+  composite_scoring:
+    formula: "weighted_sum_of_dimensions"
+    threshold_critical: 0.8
+    threshold_supporting: 0.6
+    threshold_optional: 0.4
+    threshold_exclude: 0.3
+```
+
+**AI Processing Benefits:**
+- Enables intelligent context prioritization based on quantitative measures
+- Supports automated context assembly optimization
+- Facilitates cognitive load management through score-based filtering
+- Provides measurable basis for context relevance decisions
+
+**Scoring Applications:**
+- **Context Assembly**: Use scores to determine inclusion order and priority
+- **Information Architecture**: Organize context based on relevance hierarchies
+- **Adaptive Filtering**: Adjust inclusion thresholds based on cognitive budget
+- **Quality Assessment**: Evaluate context effectiveness through score correlation with outcomes
+
+#### Adaptive Filtering Approaches
+
+Dynamic context adjustment strategies that modify filtering behavior based on AI processing capabilities, feedback patterns, and evolving task requirements:
+
+**Core Principles:**
+- **Capability-Aware Filtering**: Adjust context based on AI processing capabilities and performance patterns
+- **Feedback-Driven Optimization**: Modify filtering strategies based on AI processing outcomes and effectiveness
+- **Context-Sensitive Adaptation**: Dynamically adjust filtering approach based on current implementation context
+- **Performance-Based Learning**: Continuously improve filtering effectiveness through outcome analysis
+
+**Adaptive Filtering Framework:**
+```yaml
+adaptive_filtering:
+  capability_assessment:
+    processing_speed: measure_context_assembly_time
+    comprehension_accuracy: track_task_completion_success
+    context_window_utilization: monitor_information_density_effectiveness
+    reasoning_coherence: evaluate_logical_consistency_maintenance
+  
+  adaptation_strategies:
+    high_capability_mode:
+      context_threshold: 0.5
+      detail_level: comprehensive
+      relationship_depth: 4
+      cognitive_load_limit: high
+    
+    standard_capability_mode:
+      context_threshold: 0.6
+      detail_level: focused
+      relationship_depth: 3
+      cognitive_load_limit: moderate
+    
+    limited_capability_mode:
+      context_threshold: 0.8
+      detail_level: essential_only
+      relationship_depth: 2
+      cognitive_load_limit: minimal
+  
+  feedback_integration:
+    success_correlation: adjust_filtering_based_on_successful_outcomes
+    error_pattern_analysis: identify_filtering_approaches_that_lead_to_mistakes
+    efficiency_optimization: refine_filtering_for_faster_processing
+    quality_maintenance: ensure_filtering_preserves_implementation_quality
+```
+
+**AI Processing Benefits:**
+- Optimizes context presentation for AI processing capabilities
+- Enables continuous improvement of filtering effectiveness
+- Supports personalized context optimization based on AI performance patterns
+- Facilitates adaptive response to changing task complexity and requirements
+
+**Adaptation Mechanisms:**
+- **Performance Monitoring**: Track AI processing speed, accuracy, and cognitive load indicators
+- **Pattern Recognition**: Identify filtering approaches that correlate with successful outcomes
+- **Dynamic Adjustment**: Modify filtering parameters in real-time based on performance feedback
+- **Learning Integration**: Incorporate successful filtering patterns into future context assembly
+
 ### Dynamic Context Building
 
-Intelligent approaches to assembling relevant context for specific tasks:
+Legacy context building approaches maintained for backward compatibility:
 
 - **Need-Based Assembly**: Including only context relevant to current implementation goals
 - **Progressive Disclosure**: Adding context layers as understanding deepens

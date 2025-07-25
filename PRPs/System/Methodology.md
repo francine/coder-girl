@@ -296,6 +296,67 @@ Final Weight = Base Weight × Context Multiplier × User Multiplier × Phase Mul
 - **Adaptive Context**: Dynamic weighting enables context assembly that adjusts to changing task requirements and user needs
 - **Quality Optimization**: High-weight relationships receive priority in conflict resolution and duplicate context scenarios
 
+#### Context Filtering Strategies Integration
+
+The context assembly process now incorporates comprehensive context filtering strategies from [[AI Context Engineering.md]] to optimize cognitive load management and preserve essential information through intelligent filtering:
+
+**Need-Based Assembly Integration**:
+```yaml
+need_based_filtering_in_assembly:
+  goal_analysis_phase:
+    - extract_task_objectives: parse task acceptance criteria and implementation requirements
+    - map_implementation_success_criteria: identify essential knowledge for task completion
+    - assess_context_complexity: evaluate information requirements vs cognitive capacity
+    - define_relevance_boundaries: establish clear inclusion/exclusion criteria
+  
+  context_selection_phase:
+    - apply_direct_relevance_filter: include only context essential for goal achievement
+    - evaluate_supporting_relevance: include context that enhances implementation quality  
+    - assess_contextual_relevance: include background preventing critical errors
+    - exclude_tangential_context: remove information not supporting current objectives
+  
+  adaptive_refinement_phase:
+    - apply_phase_based_adjustments: modify context based on development phase
+    - implement_expertise_calibration: adjust context depth for user knowledge level
+    - factor_constraint_considerations: account for technical and business limitations
+    - integrate_feedback_learning: refine filtering based on implementation outcomes
+```
+
+**Progressive Disclosure Implementation**:
+- **Foundation Layer Assembly**: Load core concepts and basic relationships (20% cognitive load) before detailed implementation
+- **Implementation Layer Integration**: Add specific procedures and technical details (50% cognitive load) as task complexity requires
+- **Advanced Integration Layer**: Include complex patterns and edge cases (30% cognitive load) only when needed for comprehensive coverage
+- **Understanding-Based Progression**: Use task progress and AI feedback to trigger appropriate disclosure layers
+
+**Relevance Scoring Integration**:
+```yaml
+scoring_based_assembly:
+  multi_dimensional_evaluation:
+    task_relevance_scoring: 0.4 weight for goal alignment and implementation necessity
+    relationship_strength_scoring: 0.3 weight for semantic connection strength and dependency criticality
+    processing_efficiency_scoring: 0.2 weight for AI comprehension speed and context window optimization
+    temporal_relevance_scoring: 0.1 weight for content recency and maintenance activity
+  
+  assembly_threshold_application:
+    critical_inclusion: score >= 0.8 (always include in context assembly)
+    supporting_inclusion: score >= 0.6 (include when cognitive budget permits)
+    optional_inclusion: score >= 0.4 (include only for comprehensive understanding goals)
+    exclusion_threshold: score < 0.3 (exclude to preserve cognitive resources)
+```
+
+**Adaptive Filtering Implementation**:
+- **Capability Assessment**: Monitor AI processing speed, comprehension accuracy, and context window utilization
+- **Dynamic Threshold Adjustment**: Modify inclusion thresholds based on AI performance patterns and feedback
+- **Context-Sensitive Adaptation**: Adjust filtering approach based on task context, user expertise, and implementation phase
+- **Performance-Based Learning**: Continuously improve filtering effectiveness through outcome analysis and success correlation
+
+**Integrated Assembly Enhancement**:
+1. **Pre-Assembly Filtering**: Apply need-based analysis and relevance scoring before context traversal
+2. **Weighted Traversal with Filtering**: Combine relationship weights with filtering thresholds for optimized link selection
+3. **Progressive Assembly**: Use disclosure mechanisms to layer context complexity appropriately
+4. **Adaptive Refinement**: Apply real-time filtering adjustments based on AI processing feedback and task evolution
+5. **Quality Validation**: Ensure filtering preserves essential information while achieving cognitive load reduction goals
+
 ### Link Traversal Rules
 
 - `dependencies`: Follow to depth 3
