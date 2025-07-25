@@ -75,6 +75,41 @@ The PRP system implements a Context Engineering pipeline that transforms specifi
 - Each verb phrase describing action = potential task
 - Each knowledge area mentioned = potential domain
 
+### Domain Decomposition Integration
+
+Complex knowledge areas identified during feature detection should be systematically decomposed using appropriate strategies from [[Knowledge Organization.md]]:
+
+#### Decomposition Strategy Selection
+
+**Assessment Criteria:**
+1. **Organizational Driver**: What is the primary organizing principle? (capabilities, architecture, users, processes)
+2. **Complexity Level**: How complex is the knowledge area? (high complexity → deeper decomposition required)
+3. **Team Structure**: How are development teams organized? (align decomposition with team responsibilities)
+4. **Evolution Patterns**: How will this domain change over time? (choose sustainable decomposition approaches)
+
+**Strategy Application:**
+- **Functional Decomposition**: Use when PROMPT.md describes distinct capabilities or service areas
+- **Technical Decomposition**: Apply when technical architecture or implementation layers are primary concerns
+- **User-Centric Decomposition**: Select when user workflows and experience optimization drive organization
+- **Process Decomposition**: Choose when business processes or operational workflows are central organizing elements
+
+#### Decomposition Implementation Process
+
+1. **Initial Domain Identification**: Extract high-level knowledge areas from PROMPT.md specification
+2. **Complexity Assessment**: Evaluate each domain for internal complexity and subdivision opportunities
+3. **Strategy Selection**: Choose appropriate decomposition strategy based on assessment criteria
+4. **Subdomain Creation**: Break complex domains into atomic knowledge units following selected strategy
+5. **Relationship Mapping**: Establish proper frontmatter links between parent domains and subdomains
+6. **Validation**: Ensure decomposed structure maintains logical coherence and supports context assembly
+
+#### Decomposition Quality Checkpoints
+
+- **Atomic Responsibility**: Each subdomain addresses exactly one coherent knowledge area
+- **Clear Boundaries**: Domain boundaries are well-defined with minimal overlap
+- **Logical Hierarchy**: Parent-child relationships reflect actual conceptual or implementation dependencies
+- **Context Completeness**: Each domain contains sufficient context for standalone comprehension
+- **Assembly Efficiency**: Decomposed structure supports efficient context assembly for task execution
+
 ### Success Criteria
 
 - [ ] All features from PROMPT.md have corresponding feature files

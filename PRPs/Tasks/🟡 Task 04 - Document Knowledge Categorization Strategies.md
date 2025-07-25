@@ -5,8 +5,8 @@
 type: task
 tags: [knowledge-categorization, classification-systems, taxonomy, folksonomy]
 created: 2025-01-22
-updated: 2025-01-22
-status: todo
+updated: 2025-07-25
+status: done
 severity: medium
 up: "[[Knowledge Organization.md]]"
 feature: "[[Enhanced Methodology System.md]]"
