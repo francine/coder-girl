@@ -142,10 +142,42 @@ Complex knowledge areas identified during feature detection should be systematic
 The context assembly process integrates AI optimization principles from [[AI Context Engineering.md]] to maximize AI comprehension and task execution effectiveness:
 
 #### Information Sequencing Optimization
-- **Dependency-First Ordering**: Context assembly automatically orders information with prerequisites first, supporting AI reasoning chains
-- **General-to-Specific Progression**: Domain overviews loaded before specific task details, providing conceptual scaffolding  
-- **Problem-Solution Pairing**: Related tasks and constraints loaded alongside solutions to enable causal reasoning
-- **Conceptual Building Blocks**: Information layered systematically building on previously established knowledge
+
+Advanced integration of information sequencing guidelines from [[AI Context Engineering.md]] to optimize context assembly for AI comprehension:
+
+**Dependency-First Assembly Algorithm**:
+```yaml
+dependency_first_integration:
+  pre_assembly_analysis:
+    - map_dependency_network: analyze all frontmatter links to identify prerequisite chains
+    - validate_dependency_integrity: ensure no circular dependencies in assembled context
+    - weight_dependency_criticality: assign importance levels based on relationship types
+    - calculate_optimal_sequence: apply topological sorting to dependency graph
+  
+  assembly_execution:
+    - load_foundational_prerequisites: establish base knowledge before dependent concepts
+    - sequence_intermediate_dependencies: progress through dependency levels systematically
+    - integrate_dependent_concepts: add concepts only after prerequisites are loaded
+    - validate_comprehension_flow: verify logical progression maintains understanding coherence
+```
+
+**General-to-Specific Context Layering**:
+- **Domain Overview Integration**: Load parent domains first to establish conceptual scaffolding before specific implementations
+- **Architectural Pattern Loading**: Present structural relationships and design principles before detailed procedures
+- **Implementation Detail Sequencing**: Progress from general approaches to specific methodologies and techniques
+- **Example Integration**: Provide concrete implementations only after abstract concepts are established
+
+**Problem-Solution Assembly Pairing**:
+- **Challenge-Resolution Coupling**: Load related tasks and constraints immediately alongside their solutions
+- **Contextual Problem Framing**: Establish environmental factors and constraints before presenting solutions
+- **Reasoning Chain Construction**: Create explicit causal connections between problems and solution approaches
+- **Alternative Solution Integration**: Present solution comparisons and trade-offs within problem context
+
+**Conceptual Building Block Assembly**:
+- **Atomic Concept Establishment**: Ensure individual knowledge units are complete before combination
+- **Incremental Knowledge Combination**: Build complex understanding systematically from established foundations
+- **Knowledge Bridge Integration**: Create explicit connections between related concepts during assembly
+- **Comprehension Validation**: Verify understanding coherence at each assembly level
 
 #### Cognitive Load Management
 - **Chunk Optimization**: Context broken into manageable sections with clear boundaries and transitions
@@ -166,14 +198,45 @@ The context assembly process integrates AI optimization principles from [[AI Con
 
 ### Enhanced Assembly Process
 
-The AI-optimized context assembly follows this enhanced process:
+The AI-optimized context assembly integrates comprehensive information sequencing guidelines through this enhanced process:
 
-1. **Context Collection**: Gather all linked content following traditional traversal rules
-2. **Dependency Optimization**: Order information using dependency-first principles from AI context engineering
-3. **Cognitive Load Assessment**: Evaluate information density and apply chunking strategies if needed
-4. **Pattern Recognition Preparation**: Structure content using consistent patterns and meta-pattern documentation
-5. **Inference Support Integration**: Ensure explicit relationships, causal chains, and reasoning scaffolds are present
-6. **Final Optimization**: Apply noise reduction and attention focus techniques for task-specific optimization
+#### Phase 1: Context Collection and Analysis
+1. **Initial Link Traversal**: Gather all linked content following traditional depth and relationship rules
+2. **Dependency Network Mapping**: Analyze complete dependency structure using graph theory principles
+3. **Sequencing Strategy Selection**: Choose optimal sequencing approach based on content characteristics and task goals
+4. **Content Categorization**: Classify content by information type (foundational, implementation, examples, validation)
+
+#### Phase 2: Sequencing Optimization
+5. **Dependency-First Ordering**: Apply comprehensive dependency analysis to establish prerequisite sequences
+   - Identify foundational concepts requiring precedence
+   - Validate dependency chains for logical consistency
+   - Apply topological sorting to eliminate forward references
+6. **General-to-Specific Layering**: Structure content progression from broad context to specific details
+   - Load domain overviews before implementation specifics
+   - Present architectural patterns before detailed procedures
+   - Establish conceptual scaffolding before complex implementations
+7. **Problem-Solution Pairing**: Implement challenge-resolution coupling throughout assembled context
+   - Identify problems and constraints in content
+   - Pair challenges immediately with resolution approaches
+   - Create explicit reasoning bridges between problems and solutions
+
+#### Phase 3: Conceptual Building Integration
+8. **Atomic Concept Validation**: Ensure individual knowledge units are complete and self-contained
+9. **Building Block Assembly**: Systematically combine atomic concepts into complex understanding
+   - Apply incremental combination patterns
+   - Construct explicit knowledge bridges between concepts
+   - Validate comprehension coherence at each building level
+10. **Multi-Dimensional Sequencing**: Apply combined sequencing principles for optimal organization
+    - Integrate dependency-driven general-to-specific progression
+    - Apply problem-solution building blocks approach
+    - Implement context-aware sequencing based on task goals
+
+#### Phase 4: Quality Assurance and Optimization
+11. **Cognitive Load Assessment**: Evaluate information density and apply chunking strategies
+12. **Pattern Recognition Preparation**: Structure content using consistent patterns and meta-pattern documentation
+13. **Inference Support Integration**: Ensure explicit relationships, causal chains, and reasoning scaffolds are present
+14. **Logical Flow Validation**: Verify information sequence follows comprehensive sequencing principles
+15. **Final Optimization**: Apply noise reduction and attention focus techniques for task-specific optimization
 
 ### Relationship Weighting Integration
 
