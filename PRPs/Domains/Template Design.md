@@ -220,6 +220,98 @@ Maintaining alignment with organizational and domain standards:
 - **Accessibility Standards**: Designing templates that are accessible to diverse users and tools
 - **Evolution Readiness**: Creating templates that can adapt to changing requirements and standards
 
+## Advanced Task Template Metadata
+
+### Task-Specific Metadata Enhancements
+
+Advanced metadata structures specifically designed for task templates that enable sophisticated task management and relationship tracking:
+
+#### Semantic Relationship Tracking
+
+**Structured Dependency Management**:
+```yaml
+dependencies:
+  - link: "[[Critical Dependency.md]]"
+    type: "inherits|composed-of|precedes"
+    weight: 1.0  # critical dependency
+    description: "Relationship explanation"
+```
+
+- **Typed Relationships**: Each dependency explicitly specifies its semantic type from the relationship taxonomy
+- **Weighted Importance**: Numerical weights (0.0-1.0) indicate relationship criticality for context assembly
+- **Descriptive Context**: Human-readable descriptions explain why each relationship exists
+- **Bidirectional Awareness**: Relationships maintain consistency with reverse links in referenced documents
+
+#### Progress Monitoring Integration
+
+**Milestone-Based Progress Tracking**:
+```yaml
+milestones:
+  - id: "design-complete"
+    description: "Design and planning finalized"
+    status: pending|achieved
+    completion_date: null|YYYY-MM-DD
+```
+
+- **Granular Progress Indicators**: Multiple milestones track task completion at different stages
+- **Status Verification**: Each milestone has verifiable completion criteria
+- **Temporal Tracking**: Completion dates enable timeline analysis and velocity metrics
+- **Integration Points**: Milestones align with validation checkpoints for consistency
+
+#### Validation Checkpoint System
+
+**Multi-Stage Validation Framework**:
+```yaml
+validation:
+  checkpoints:
+    - stage: "pre-implementation"
+      criteria: ["dependencies resolved", "design reviewed"]
+      status: pending|passed|failed
+```
+
+- **Progressive Validation**: Checkpoints at pre-implementation, implementation, and completion stages
+- **Criteria-Based Assessment**: Explicit criteria that must be met at each stage
+- **Quality Gate Integration**: Automated quality metrics with defined thresholds
+- **Status Tracking**: Real-time validation status for each checkpoint and quality gate
+
+#### Implementation Tracking Metadata
+
+**Comprehensive Implementation Context**:
+```yaml
+implementation:
+  estimated_effort: "S|M|L|XL"
+  actual_effort: null|duration
+  blockers: ["blocker description"]
+  risks: ["risk description"]
+```
+
+- **Effort Estimation**: T-shirt sizing for quick effort assessment and planning
+- **Actual vs Estimated**: Track real effort against estimates for future improvements
+- **Blocker Documentation**: Explicit tracking of impediments for resolution
+- **Risk Management**: Proactive risk identification and documentation
+
+### Relationship Visualization Support
+
+**Visual Relationship Mapping**:
+- **Mermaid Diagram Integration**: Embedded diagrams visualize complex dependency chains
+- **Hierarchical Relationship Display**: Clear representation of inheritance and composition patterns
+- **Impact Analysis Visualization**: Visual mapping of affected domains and components
+- **Progress Flow Visualization**: Milestone and checkpoint progression displayed graphically
+
+### Template Usage Patterns for Tasks
+
+**Context-Aware Template Selection**:
+- **Simple Tasks**: Use minimal metadata for straightforward implementation tasks
+- **Complex Tasks**: Apply full metadata capabilities for multi-dependency implementations
+- **Research Tasks**: Emphasize relationship tracking and discovery metadata
+- **Integration Tasks**: Focus on validation checkpoints and quality gates
+
+**Progressive Enhancement Approach**:
+- **Start Simple**: Begin with basic metadata and add complexity as needed
+- **Validate Incrementally**: Use validation checkpoints to ensure quality at each stage
+- **Track Continuously**: Update progress indicators throughout task lifecycle
+- **Refine Iteratively**: Adjust relationships and weights based on actual implementation experience
+
 ## Features
 
 ### Advanced Templates Framework
