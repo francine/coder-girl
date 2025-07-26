@@ -549,6 +549,537 @@ Validation processes that integrate quality criteria for systematic expert evalu
 - **Accessibility Testing**: Comprehensive accessibility evaluation with diverse user groups and assistive technologies
 - **Satisfaction Assessment**: Systematic collection and analysis of user feedback against defined satisfaction thresholds
 
+## Comprehensive Relationship Validation Processes
+
+### Automated Bidirectional Relationship Validation
+
+Advanced systems for ensuring reciprocal link consistency and semantic coherence across complex knowledge networks:
+
+#### Bidirectional Consistency Detection
+```yaml
+bidirectional_validation_framework:
+  orphaned_relationship_detection:
+    description: "Systematic identification of one-way relationships that should be bidirectional"
+    automation:
+      scanning_frequency: "daily automated scans"
+      detection_algorithm: "reciprocal_link_analysis"
+      validation_criteria: "semantic_relationship_type_appropriateness"
+    
+    process:
+      - scan_all_frontmatter_relationships
+      - identify_expected_bidirectional_relationships
+      - detect_missing_reciprocal_links
+      - classify_orphan_severity_and_impact
+      - generate_resolution_recommendations
+  
+  reciprocal_link_verification:
+    description: "Automated checking that forward relationships have appropriate reverse counterparts"
+    automation:
+      trigger: "relationship_creation_or_modification"
+      validation_engine: "semantic_consistency_checker"
+      auto_correction: "enabled_for_standard_patterns"
+    
+    validation_rules:
+      symmetric_relationships:
+        - similar_to: "automatically_create_reciprocal_similar_to"
+        - alternative_to: "automatically_create_reciprocal_alternative_to"
+      
+      asymmetric_relationships:
+        - inherits: "automatically_create_inherited_by"
+        - specializes: "automatically_create_generalized_by" 
+        - composed_of: "automatically_create_composes"
+        - aggregates: "automatically_create_part_of"
+        - precedes: "automatically_create_follows"
+        - complements: "automatically_create_complemented_by"
+```
+
+#### Semantic Consistency Checking
+```yaml
+semantic_consistency_validation:
+  relationship_type_verification:
+    description: "Validation that relationship types match content reality and semantic appropriateness"
+    automation:
+      analysis_frequency: "on_relationship_assignment"
+      validation_engine: "semantic_type_analyzer"
+      conflict_detection: "automated_with_expert_escalation"
+    
+    validation_criteria:
+      hierarchical_relationships:
+        - inheritance_validation: "verify_child_compatibility_with_parent_behavioral_contracts"
+        - composition_validation: "confirm_components_cannot_exist_independently"
+        - specialization_validation: "ensure_specialized_concepts_maintain_core_characteristics"
+        - aggregation_validation: "verify_aggregated_elements_maintain_independence"
+      
+      lateral_relationships:
+        - similarity_validation: "confirm_70_percent_functional_overlap"
+        - complementarity_validation: "verify_synergistic_enhancement_when_combined"
+        - alternative_validation: "ensure_identical_problems_different_approaches"
+        - sequence_validation: "confirm_clear_temporal_logical_dependency"
+  
+  relationship_conflict_detection:
+    description: "Automated detection of conflicting or incompatible relationship assignments"
+    automation:
+      monitoring: "continuous_relationship_monitoring"
+      conflict_resolution: "automated_with_priority_based_resolution"
+      escalation: "expert_review_for_complex_conflicts"
+    
+    conflict_types:
+      mutually_exclusive_relationships:
+        - inheritance_vs_aggregation: "same_parent_child_cannot_have_both"
+        - composition_vs_independence: "compositional_components_cannot_be_independent_alternatives"
+        - similarity_vs_alternative: "same_concepts_cannot_be_both_similar_and_alternative"
+        - circular_sequences: "prevent_A_precedes_B_precedes_A_cycles"
+      
+      semantic_inconsistencies:
+        - bidirectional_mismatches: "asymmetric_relationships_must_have_compatible_meanings"
+        - strength_incompatibilities: "critical_relationships_cannot_be_optional_in_reverse"
+        - type_conflicts: "same_relationship_cannot_have_different_semantic_types"
+```
+
+#### Automated Consistency Enforcement
+```yaml
+consistency_enforcement_mechanisms:
+  reciprocal_relationship_creation:
+    description: "Automatic generation of appropriate reverse relationships"
+    automation:
+      trigger: "relationship_establishment"
+      processing: "immediate_reciprocal_creation"
+      validation: "semantic_consistency_verification"
+    
+    creation_patterns:
+      symmetric_patterns:
+        - similar_to: "create_identical_similar_to_relationship"
+        - alternative_to: "create_identical_alternative_to_relationship"
+      
+      asymmetric_patterns:
+        - inherits: "create_inherited_by_with_appropriate_semantic_meaning"
+        - specializes: "create_generalized_by_with_inverse_semantic_meaning"
+        - composed_of: "create_composes_with_structural_dependency_meaning"
+        - aggregates: "create_part_of_with_organizational_context_meaning"
+        - precedes: "create_follows_with_dependency_context_meaning"
+        - complements: "create_complemented_by_with_enhancement_reception_meaning"
+  
+  relationship_update_propagation:
+    description: "Ensuring relationship changes reflect appropriately in both directions"
+    automation:
+      synchronization: "real_time_bidirectional_updates"
+      consistency_checking: "automated_post_update_validation"
+      conflict_resolution: "priority_based_resolution_with_audit_trail"
+    
+    propagation_rules:
+      - relationship_deletion: "automatically_remove_reciprocal_relationships"
+      - relationship_modification: "update_reciprocal_relationships_with_semantic_consistency"
+      - relationship_type_changes: "validate_and_update_reciprocal_types_appropriately"
+      - weight_adjustments: "propagate_weight_changes_based_on_relationship_semantics"
+```
+
+### Semantic Relationship Validation
+
+Comprehensive validation systems for ensuring relationship type appropriateness and preventing conflicting relationship assignments:
+
+#### Relationship Type Appropriateness Validation
+```yaml
+semantic_type_validation:
+  hierarchical_relationship_validation:
+    inheritance_relationship_validation:
+      validation_criteria:
+        - behavioral_contract_compatibility: "child_concepts_must_be_compatible_with_parent_behaviors"
+        - conceptual_specialization: "child_must_represent_specialized_version_of_parent"
+        - circular_inheritance_prevention: "no_circular_inheritance_chains_allowed"
+        - depth_limit_enforcement: "maximum_inheritance_depth_5_levels"
+      
+      validation_process:
+        - analyze_parent_behavioral_contracts_and_characteristics
+        - verify_child_concept_compatibility_and_specialization_appropriateness
+        - check_inheritance_chain_for_circular_dependencies
+        - enforce_inheritance_depth_limits_and_complexity_management
+    
+    composition_relationship_validation:
+      validation_criteria:
+        - essential_component_verification: "components_must_be_essential_structural_parts"
+        - independence_incompatibility: "components_cannot_exist_independently_of_parent"
+        - strong_coupling_verification: "removal_of_component_must_break_parent_functionality"
+        - structural_dependency_confirmation: "compositional_relationships_reflect_actual_dependencies"
+      
+      validation_process:
+        - analyze_parent_structural_dependencies_and_requirements
+        - verify_component_essentiality_and_structural_integration
+        - check_component_independence_incompatibility
+        - confirm_strong_coupling_and_structural_dependency_relationships
+    
+    specialization_relationship_validation:
+      validation_criteria:
+        - core_characteristic_maintenance: "specialized_concepts_must_maintain_parent_core_functionality"
+        - constraint_addition_only: "can_add_constraints_but_not_remove_core_functionality"
+        - behavioral_substitutability: "specialized_concepts_must_support_behavioral_substitutability"
+        - implementation_focus: "specialization_must_represent_focused_implementation"
+      
+      validation_process:
+        - analyze_parent_core_characteristics_and_behavioral_requirements
+        - verify_specialized_concept_maintains_core_functionality_and_contracts
+        - check_constraint_additions_dont_violate_parent_behavioral_requirements
+        - confirm_behavioral_substitutability_and_implementation_focus
+    
+    aggregation_relationship_validation:
+      validation_criteria:
+        - element_independence: "aggregated_elements_must_maintain_independent_existence"
+        - loose_coupling_verification: "aggregation_must_represent_loose_coupling_relationships"
+        - coordination_not_control: "parent_coordinates_but_does_not_control_elements"
+        - organizational_grouping: "aggregation_represents_organizational_not_structural_grouping"
+      
+      validation_process:
+        - analyze_element_independence_and_autonomous_functionality
+        - verify_loose_coupling_and_coordination_relationship_patterns
+        - check_parent_coordination_role_without_control_mechanisms
+        - confirm_organizational_grouping_without_structural_dependency
+  
+  lateral_relationship_validation:
+    similarity_relationship_validation:
+      validation_criteria:
+        - functional_overlap_threshold: "concepts_must_share_70_percent_functional_characteristics"
+        - complexity_level_compatibility: "similar_complexity_levels_and_scope_required"
+        - implementation_effort_comparability: "comparable_implementation_effort_and_approach"
+        - problem_domain_parallelism: "concepts_must_address_parallel_problem_domains"
+      
+      validation_process:
+        - analyze_functional_characteristics_and_calculate_overlap_percentage
+        - verify_complexity_level_and_scope_compatibility
+        - check_implementation_effort_comparability_and_approach_similarity
+        - confirm_problem_domain_parallelism_and_approach_overlap
+    
+    complementarity_relationship_validation:
+      validation_criteria:
+        - synergistic_enhancement: "concepts_must_enhance_each_others_capabilities_when_combined"
+        - non_overlapping_functionality: "concepts_must_have_non_overlapping_core_capabilities"
+        - combined_value_creation: "combined_use_must_provide_greater_value_than_sum"
+        - functional_integration_potential: "concepts_must_have_beneficial_integration_opportunities"
+      
+      validation_process:
+        - analyze_capability_enhancement_patterns_and_synergistic_potential
+        - verify_non_overlapping_functionality_and_capability_complementarity
+        - check_combined_value_creation_and_emergent_benefit_potential
+        - confirm_functional_integration_opportunities_and_synergy_patterns
+    
+    alternative_relationship_validation:
+      validation_criteria:
+        - identical_problem_solving: "concepts_must_solve_identical_fundamental_problems"
+        - mutually_exclusive_approaches: "concepts_must_use_mutually_exclusive_implementation_approaches"
+        - different_tradeoffs: "concepts_must_have_different_tradeoffs_and_constraint_considerations"
+        - decision_making_support: "alternatives_must_support_informed_decision_making_scenarios"
+      
+      validation_process:
+        - analyze_problem_solving_scope_and_verify_identical_fundamental_problems
+        - verify_mutually_exclusive_implementation_approaches_and_methodology_differences
+        - check_different_tradeoffs_and_constraint_consideration_patterns
+        - confirm_decision_making_support_and_choice_scenario_appropriateness
+    
+    sequence_relationship_validation:
+      validation_criteria:
+        - temporal_logical_dependency: "concepts_must_have_clear_temporal_or_logical_dependency"
+        - prerequisite_relationship: "prerequisite_relationship_must_exist_and_be_verifiable"
+        - sequential_implementation_requirement: "sequential_implementation_order_must_be_required"
+        - learning_path_construction: "sequence_must_support_effective_learning_or_implementation_paths"
+      
+      validation_process:
+        - analyze_temporal_and_logical_dependency_patterns
+        - verify_prerequisite_relationships_and_dependency_requirements
+        - check_sequential_implementation_order_requirements_and_constraints
+        - confirm_learning_path_construction_and_implementation_sequence_effectiveness
+```
+
+#### Relationship Conflict Prevention
+```yaml
+conflict_prevention_mechanisms:
+  relationship_compatibility_matrix:
+    description: "Comprehensive compatibility validation between relationship types"
+    automation:
+      validation_trigger: "before_relationship_creation"
+      conflict_detection: "compatibility_matrix_checking"
+      prevention_action: "block_incompatible_relationship_creation"
+    
+    compatibility_rules:
+      hierarchical_relationships:
+        - inheritance_composition_conflict: "same_concept_pair_cannot_have_both_inheritance_and_composition"
+        - specialization_aggregation_conflict: "specialization_incompatible_with_aggregation_for_same_concepts"
+        - circular_hierarchy_prevention: "prevent_circular_relationships_in_hierarchical_types"
+      
+      lateral_relationships:
+        - similarity_alternative_conflict: "same_concept_pair_cannot_be_both_similar_and_alternative"
+        - complementarity_competition_conflict: "complementary_concepts_cannot_also_be_competitive_alternatives"
+        - sequence_symmetry_conflict: "sequential_relationships_cannot_be_symmetric"
+  
+  semantic_consistency_enforcement:
+    description: "Ensuring relationship meanings remain logically consistent"
+    automation:
+      consistency_monitoring: "continuous_semantic_consistency_monitoring"
+      conflict_resolution: "automated_consistency_enforcement_with_audit_trail"
+      escalation: "expert_review_for_complex_semantic_conflicts"
+    
+    consistency_rules:
+      - bidirectional_semantic_alignment: "bidirectional_relationships_must_maintain_semantic_coherence"
+      - relationship_strength_compatibility: "relationship_weights_must_be_compatible_bidirectionally"
+      - type_semantic_matching: "relationship_types_must_match_actual_concept_relationships"
+      - network_coherence_maintenance: "relationship_networks_must_maintain_overall_logical_coherence"
+```
+
+### Orphan Detection Mechanisms
+
+Systematic identification and resolution of incomplete bidirectional relationships:
+
+#### Orphaned Relationship Detection
+```yaml
+orphan_detection_framework:
+  one_way_relationship_identification:
+    description: "Systematic scanning for relationships that should be bidirectional but are missing reciprocal links"
+    automation:
+      scanning_schedule: "daily_comprehensive_scans"
+      detection_algorithm: "bidirectional_expectation_analysis"
+      priority_classification: "severity_based_orphan_prioritization"
+    
+    detection_process:
+      - scan_all_content_frontmatter_for_relationships
+      - identify_semantic_relationship_types_requiring_bidirectionality
+      - check_for_missing_reciprocal_relationships
+      - classify_orphan_severity_based_on_relationship_type_and_context
+      - generate_prioritized_resolution_recommendations
+    
+    orphan_classification:
+      critical_orphans:
+        - missing_inheritance_reciprocals: "inherited_by_relationships_missing"
+        - missing_composition_reciprocals: "composes_relationships_missing"
+        - missing_sequence_reciprocals: "follows_relationships_missing"
+      
+      moderate_orphans:
+        - missing_specialization_reciprocals: "generalized_by_relationships_missing"
+        - missing_aggregation_reciprocals: "part_of_relationships_missing"
+        - missing_complementarity_reciprocals: "complemented_by_relationships_missing"
+      
+      minor_orphans:
+        - missing_similarity_reciprocals: "similar_to_relationships_missing"
+        - missing_alternative_reciprocals: "alternative_to_relationships_missing"
+  
+  orphan_impact_analysis:
+    description: "Assessment of orphaned relationship impact on knowledge network integrity"
+    automation:
+      impact_calculation: "network_analysis_based_impact_assessment"
+      priority_scoring: "impact_severity_priority_scoring"
+      resolution_planning: "automated_resolution_strategy_recommendation"
+    
+    impact_assessment_criteria:
+      network_connectivity_impact:
+        - navigation_efficiency_degradation: "orphans_reduce_bidirectional_navigation_effectiveness"
+        - context_assembly_completeness: "orphans_result_in_incomplete_context_assembly"
+        - knowledge_discovery_hindrance: "orphans_prevent_effective_knowledge_discovery"
+      
+      semantic_coherence_impact:
+        - relationship_network_logical_inconsistency: "orphans_create_logical_inconsistencies"
+        - bidirectional_meaning_loss: "missing_reciprocals_lose_semantic_meaning"
+        - context_understanding_degradation: "orphans_reduce_context_comprehension"
+  
+  automated_orphan_resolution:
+    description: "Automated creation of missing reciprocal relationships based on semantic type and context"
+    automation:
+      resolution_trigger: "orphan_detection_with_confidence_threshold"
+      creation_engine: "semantic_reciprocal_relationship_generator"
+      validation: "post_creation_consistency_validation"
+    
+    resolution_strategies:
+      high_confidence_auto_resolution:
+        - symmetric_relationships: "automatically_create_missing_symmetric_relationships"
+        - standard_asymmetric_patterns: "automatically_create_standard_reciprocal_relationships"
+        - well_defined_semantic_types: "automatically_resolve_using_established_semantic_patterns"
+      
+      guided_resolution:
+        - complex_semantic_contexts: "provide_resolution_recommendations_with_expert_review"
+        - ambiguous_relationship_contexts: "offer_multiple_resolution_options_for_selection"
+        - high_impact_orphans: "require_expert_validation_before_automated_resolution"
+```
+
+#### Orphan Resolution Guidance
+```yaml
+orphan_resolution_procedures:
+  resolution_recommendation_generation:
+    description: "Systematic generation of actionable guidance for resolving orphaned relationships"
+    automation:
+      recommendation_engine: "context_aware_resolution_recommendation_generator"
+      guidance_customization: "role_based_resolution_guidance"
+      implementation_support: "step_by_step_resolution_procedures"
+    
+    recommendation_types:
+      automated_resolution_recommendations:
+        - confidence_based_auto_fix: "high_confidence_orphans_with_automated_resolution_option"
+        - pattern_based_suggestions: "recommendations_based_on_similar_relationship_patterns"
+        - semantic_type_guided: "resolution_options_based_on_semantic_relationship_type"
+      
+      manual_resolution_guidance:
+        - expert_review_required: "complex_orphans_requiring_domain_expert_evaluation"
+        - context_dependent_resolution: "orphans_requiring_specific_context_analysis"
+        - multiple_option_scenarios: "orphans_with_multiple_valid_resolution_approaches"
+  
+  resolution_workflow_integration:
+    description: "Integration of orphan resolution into content creation and maintenance workflows"
+    automation:
+      workflow_integration: "seamless_integration_with_content_management_processes"
+      notification_system: "proactive_orphan_detection_notifications"
+      resolution_tracking: "comprehensive_resolution_progress_tracking"
+    
+    workflow_integration_points:
+      content_creation:
+        - pre_publication_orphan_checking: "orphan_detection_before_content_publication"
+        - relationship_completeness_validation: "ensure_bidirectional_completeness_before_release"
+        - guided_relationship_creation: "assist_content_creators_with_complete_relationship_establishment"
+      
+      content_maintenance:
+        - periodic_orphan_audits: "regular_comprehensive_orphan_detection_and_resolution"
+        - relationship_health_monitoring: "continuous_monitoring_of_relationship_network_health"
+        - proactive_orphan_prevention: "early_detection_and_prevention_of_orphan_formation"
+```
+
+### Cross-Reference Verification Systems
+
+Comprehensive systems for ensuring all referenced content exists and maintains appropriate relationship types:
+
+#### Content Existence Verification
+```yaml
+content_verification_framework:
+  referenced_content_validation:
+    description: "Systematic verification that all referenced content exists and is accessible"
+    automation:
+      verification_frequency: "daily_comprehensive_content_existence_validation"
+      detection_algorithm: "comprehensive_reference_resolution_analysis"
+      broken_reference_handling: "automated_detection_with_resolution_guidance"
+    
+    verification_process:
+      - extract_all_content_references_from_frontmatter_and_content
+      - resolve_reference_paths_and_verify_file_existence
+      - check_referenced_content_accessibility_and_validity
+      - identify_broken_references_and_missing_content
+      - generate_broken_reference_resolution_recommendations
+    
+    reference_types_validated:
+      frontmatter_references:
+        - up_chain_references: "parent_domain_and_hierarchy_reference_validation"
+        - feature_references: "parent_feature_reference_existence_validation"
+        - dependency_references: "prerequisite_content_reference_validation"
+        - related_references: "lateral_connection_reference_validation"
+        - semantic_relationship_references: "semantic_relationship_target_validation"
+      
+      content_body_references:
+        - wiki_link_references: "wiki_style_link_target_validation"
+        - cross_reference_mentions: "explicit_cross_reference_target_validation"
+        - example_references: "example_and_demonstration_reference_validation"
+  
+  broken_reference_detection:
+    description: "Comprehensive identification of broken references and missing content targets"
+    automation:
+      detection_sensitivity: "comprehensive_broken_reference_detection"
+      classification_system: "severity_based_broken_reference_classification"
+      resolution_prioritization: "impact_based_resolution_priority_assignment"
+    
+    broken_reference_classification:
+      critical_broken_references:
+        - missing_parent_domains: "up_chain_references_to_non_existent_parent_domains"
+        - missing_feature_contexts: "feature_references_to_non_existent_parent_features"
+        - missing_critical_dependencies: "dependency_references_to_non_existent_critical_prerequisites"
+      
+      moderate_broken_references:
+        - missing_related_content: "related_references_to_non_existent_lateral_connections"
+        - missing_semantic_targets: "semantic_relationship_references_to_non_existent_targets"
+        - missing_cross_references: "content_body_references_to_non_existent_targets"
+      
+      minor_broken_references:
+        - missing_example_references: "example_references_to_non_existent_demonstration_content"
+        - missing_optional_references: "optional_reference_targets_that_are_non_existent"
+  
+  content_accessibility_validation:
+    description: "Verification that referenced content is not only present but properly accessible and valid"
+    automation:
+      accessibility_checking: "comprehensive_content_accessibility_validation"
+      validity_verification: "referenced_content_structure_and_validity_checking"
+      permission_validation: "content_access_permission_and_availability_verification"
+    
+    accessibility_validation_criteria:
+      file_system_accessibility:
+        - file_existence: "referenced_files_exist_in_expected_locations"
+        - file_readability: "referenced_files_are_readable_and_not_corrupted"
+        - path_resolution: "reference_paths_resolve_correctly_to_target_files"
+      
+      content_validity:
+        - frontmatter_validity: "referenced_content_has_valid_frontmatter_structure"
+        - content_structure: "referenced_content_follows_expected_structural_patterns"
+        - type_consistency: "referenced_content_type_matches_reference_expectations"
+```
+
+#### Relationship Type Consistency Verification
+```yaml
+relationship_consistency_verification:
+  cross_reference_relationship_validation:
+    description: "Ensuring cross-references maintain appropriate and consistent relationship types"
+    automation:
+      consistency_monitoring: "continuous_cross_reference_relationship_consistency_monitoring"
+      type_validation: "semantic_relationship_type_consistency_validation"
+      conflict_detection: "cross_reference_relationship_conflict_detection"
+    
+    validation_process:
+      - extract_cross_reference_relationships_from_content_network
+      - verify_relationship_type_consistency_across_referenced_content
+      - check_semantic_relationship_appropriateness_and_logical_consistency
+      - identify_relationship_type_conflicts_and_inconsistencies
+      - generate_relationship_consistency_improvement_recommendations
+    
+    consistency_validation_criteria:
+      semantic_type_consistency:
+        - relationship_type_matching: "cross_references_use_semantically_appropriate_relationship_types"
+        - bidirectional_type_consistency: "reciprocal_relationships_maintain_type_consistency"
+        - semantic_meaning_preservation: "relationship_types_preserve_intended_semantic_meaning"
+      
+      relationship_network_coherence:
+        - network_logical_consistency: "relationship_network_maintains_overall_logical_coherence"
+        - transitive_relationship_validity: "transitive_relationships_maintain_semantic_validity"
+        - hierarchical_network_integrity: "hierarchical_relationships_maintain_structural_integrity"
+  
+  relationship_type_appropriateness_validation:
+    description: "Verification that relationship types accurately reflect actual content relationships"
+    automation:
+      appropriateness_analysis: "content_analysis_based_relationship_type_validation"
+      semantic_matching: "semantic_relationship_type_matching_validation"
+      expert_validation_triggers: "complex_relationship_expert_validation_triggers"
+    
+    validation_methodology:
+      content_analysis_validation:
+        - conceptual_relationship_analysis: "analyze_content_to_determine_appropriate_relationship_types"
+        - functional_relationship_verification: "verify_relationship_types_match_functional_content_relationships"
+        - structural_relationship_confirmation: "confirm_relationship_types_reflect_structural_content_organization"
+      
+      semantic_appropriateness_checking:
+        - semantic_meaning_alignment: "verify_relationship_types_align_with_semantic_meaning_frameworks"
+        - relationship_taxonomy_compliance: "ensure_relationship_types_comply_with_established_taxonomy"
+        - context_appropriate_selection: "validate_relationship_type_selection_is_contextually_appropriate"
+  
+  relationship_quality_assessment:
+    description: "Comprehensive assessment of relationship quality and effectiveness"
+    automation:
+      quality_metrics: "comprehensive_relationship_quality_metric_calculation"
+      effectiveness_measurement: "relationship_effectiveness_measurement_and_tracking"
+      improvement_recommendations: "relationship_quality_improvement_recommendation_generation"
+    
+    quality_assessment_dimensions:
+      relationship_accuracy:
+        - semantic_accuracy: "relationship_types_accurately_reflect_content_relationships"
+        - bidirectional_accuracy: "reciprocal_relationships_maintain_accurate_semantic_meanings"
+        - network_accuracy: "relationship_networks_accurately_represent_knowledge_structure"
+      
+      relationship_completeness:
+        - coverage_completeness: "all_logical_relationships_are_explicitly_documented"
+        - bidirectional_completeness: "all_appropriate_reciprocal_relationships_are_present"
+        - network_completeness: "relationship_networks_provide_comprehensive_knowledge_connectivity"
+      
+      relationship_utility:
+        - navigation_utility: "relationships_enable_effective_knowledge_navigation"
+        - context_assembly_utility: "relationships_support_effective_context_assembly"
+        - knowledge_discovery_utility: "relationships_facilitate_efficient_knowledge_discovery"
+```
+
 ## Consistency Management
 
 ### Cross-Reference Validation
