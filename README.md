@@ -1,4 +1,4 @@
-# README.md
+# PRP Project Template
 
 ## 📘 Visão Geral do Projeto
 
