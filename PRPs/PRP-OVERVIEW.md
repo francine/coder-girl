@@ -1,8 +1,6 @@
-# PRP System Documentation
+# Overview
 
-## Overview
-
-Product Requirements Prompts (PRPs) is a structured documentation system for organizing development knowledge, tasks, and features using a DTF (Domains-Tasks-Features) framework. The system transforms human specifications into distributed documentation that can be dynamically reassembled for AI implementation.
+Product Requirements Prompts (PRPs) is a structured documentation system for organizing development knowledge, tasks, and features using a DFT (Domains-Features-Tasks) framework. The system transforms human specifications into distributed documentation that can be dynamically reassembled for AI implementation. The system also supports interface generation using visual examples. The Examples/UI/ folder is a critical input: it should contain mockups, wireframes, or screenshots representing intended interfaces. During the Research Phase of the generate-prp command, these visuals are scanned and interpreted to extract reusable layout and UI patterns. These patterns are automatically embedded into relevant Features and Tasks.
 
 ## Directory Structure and Purpose
 
@@ -11,7 +9,8 @@ PRPs/
 ├── Domains/          # Knowledge and context files
 ├── Tasks/           # Action items with severity and status tracking  
 ├── Features/        # Development efforts with energy classification
-│   └── Examples/    # Example feature files for reference
+├── Examples/        # Visual and contextual references (UI, data samples)
+│   └── UI/          # 🔥 Critical folder: mockups used for interface generation
 ├── System/          # Framework documentation and templates
 │   └── Templates/   # File templates for creating new documents
 ├── README.md        # This navigation index
@@ -26,7 +25,8 @@ PRPs/
 
 **Features/** - Contains development efforts that group related tasks. Define scope, dependencies, acceptance criteria, and serve as organizational units for complex functionality.
 
-**Features/Examples/** - Reference implementations and sample feature files to guide structure
+**Examples/** - Visual and contextual references used by the system.  
+The folder `Examples/UI/` is especially critical: it stores mockups and design assets that the system analyzes automatically to generate layout-aware PRPs.
 
 **System/** - Framework documentation, methodology guides, and file templates. This is where you learn how PRP works and find resources for creating new files.
 
@@ -40,6 +40,7 @@ PRPs/
 
 1. **Write your specifications** in PROMPT.md using natural language
 2. **Run generate-prp command** in Claude Code to process your specifications
+    - It will also scan `Examples/UI/` for visual references to guide interface implementation
 3. **Claude automatically creates** Features, Tasks, and Domains with proper linking
 4. **Use execute-prp command** with any generated task to get full context for implementation
 
@@ -61,7 +62,10 @@ The system is designed to work seamlessly with Claude Code's agentic capabilitie
 
 ### Framework Overview
 
-- **[[System/PRP System.md]]** - System overview, workflow, key principles
+- **[[System/PRP-SYSTEM.md]]** - Internal documentation of the PRP generation framework
+- **[[System/prp-generation-blueprint.md]]** - Generation process executed by `generate-prp`
+- **[[System/prp-execution-blueprint.md]]** - Execution logic behind `execute-prp`
+- **[[System/task-execution-blueprint.md]]** - How task execution works and is validated
 
 ### Implementation Documentation
 
@@ -72,13 +76,13 @@ The system is designed to work seamlessly with Claude Code's agentic capabilitie
 
 ### Templates and Resources
 
-- **[[System/Templates/domain-template.md]]** - Template for knowledge and context files
-- **[[System/Templates/task-template.md]]** - Template for action items and bugs  
-- **[[System/Templates/feature-template.md]]** - Template for development efforts
+- **[[System/domain-template.md]]**
+- **[[System/task-template.md]]**
+- **[[System/feature-template.md]]**
 
 ## Quick Navigation
 
-**New to PRP?** → Start with [[System/PRP System.md]]  
+**New to PRP?** → Start with [[System/README.md]]  
 **Creating files?** → Use templates in [[System/Templates/]]  
 **Understanding links?** → Read [[System/Linking System.md]]  
 **Managing tasks?** → See [[System/Management Guidelines.md]]  

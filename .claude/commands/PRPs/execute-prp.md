@@ -1,36 +1,31 @@
-# Execute DTF Task
+# execute-prp
 
-Implement a task using the DTF task file and its assembled context following the framework's context assembly rules.
+Execute a PRP (Procedural Reference Protocol) with appropriate context and process.
 
-## Required Reading Before Starting
+## PRP File: $ARGUMENTS
 
-- **[[PRPs/System/PRP System.md]]** - Framework overview and workflow
-- **[[PRPs/System/Methodology.md]]** - Context assembly algorithm and examples
-- **[[PRPs/System/Linking System.md]]** - Link traversal rules and depth limits
-- **[[PRPs/System/Management Guidelines.md]]** - Status updates and validation procedures
+If no argument is provided, searches for the next task to execute:
+1. First looks for any task with status `in-progress` (interrupted work)
+2. If none found, looks for the next task with status `todo`
+3. Executes the found task
 
-## Task File: $ARGUMENTS
+### When PRP is a TASK
 
-<<<<<<< HEAD
-## Execution Process
+After reading the PRP file, determine if it is a task by checking if it's located in `PRPs/Tasks/` directory and follows the naming pattern `Task {NN} - {Description}.md`.
 
-If provided to the `$ARGUMENTS` the pattern `task-{number}`, treat `$ARGUMENTS` as the reference to a task in `PRPs/Tasks/Task {number} - {description}.md`
-=======
-If the pattern "task {number}" is provided as $ARGUMENTS, treat $ARGUMENTS as a reference to the corresponding task file located at PRPs/Tasks/Task {number} - {description}.md.
+For task PRPs, first read and apply the **task-execution-blueprint.md** before proceeding with the execution process below.
 
 ## Execution Process
->>>>>>> b7b8c36256179d4c310e1684da23819f4967b005
 
 ### 1. Context Assembly
 
-- Read the specified task file and extract frontmatter links
-- Follow link traversal rules per [[System/Linking System.md]]:
-  - `dependencies`: Follow to depth 3
-  - `up`: Follow complete chain to root
-  - `related`: Follow to depth 1
-  - `feature`: Include complete content
-- Load all linked domains, features, and related tasks
-- Assemble complete implementation context in dependency order
+- Read the specified PRP file and extract frontmatter links
+- For task PRPs with embedded Context Engineering:
+  - Use only the embedded context within the task file
+  - Do not traverse external links or assemble external context
+- For other PRPs:
+  - Follow link traversal rules as needed
+  - Assemble complete implementation context in dependency order
 
 ### 2. Planning Phase
 
@@ -39,42 +34,42 @@ If the pattern "task {number}" is provided as $ARGUMENTS, treat $ARGUMENTS as a 
 - Analyze all assembled context and requirements
 - Create comprehensive implementation plan addressing all criteria
 - Break down complex tasks into manageable steps using todos tools
-- Identify implementation patterns from linked domains
+- Identify implementation patterns from available context
 - Use TodoWrite tool to create and track implementation plan
 - Extend research with web searches and codebase exploration as needed
 
 ### 3. Status Management
 
-Update task status following [[System/Management Guidelines.md]]:
+Update status in PRP frontmatter when applicable:
 
 ```yaml
-status: 🟡 in-progress  # Update when starting implementation
+status: in-progress  # Update when starting implementation
 ```
 
 ### 4. Implementation
 
 - Execute the planned implementation
-- Follow patterns and approaches from linked domain files
-- Reference feature context for scope and acceptance criteria
-- Implement all required functionality per task specifications
+- Follow patterns and approaches from context
+- Reference specifications for scope and acceptance criteria
+- Implement all required functionality per PRP specifications
 
 ### 5. Validation
 
-- Run each validation command specified in task file
+- Run each validation command specified in PRP
 - Execute acceptance criteria tests
-- Fix any failures using error patterns from linked domains
+- Fix any failures using error patterns from context
 - Re-run validation until all tests pass
-- Cross-reference with feature requirements
+- Cross-reference with requirements
 
 ### 6. Completion
 
 - Verify all acceptance criteria met
 - Run final validation suite
-- Update task status:
+- Update status:
 
 ```yaml
-status: 🟢 done        # Mark as completed
-updated: 2025-01-20    # Update timestamp
+status: done         # Mark as completed
+updated: 2025-01-20  # Update timestamp
 ```
 
 - Report completion status with summary
@@ -83,26 +78,26 @@ updated: 2025-01-20    # Update timestamp
 
 If additional context needed during implementation:
 
-- Reference the original task file and linked domains
+- Reference the original PRP file and any linked resources
 - Follow link chains again for updated information
-- Maintain awareness of complete context assembly throughout process
+- Maintain awareness of complete context throughout process
 
 ## Error Handling
 
 When validation fails:
 
-- Consult error handling patterns from linked domains
-- Review task acceptance criteria for specific requirements
-- Use related task files for implementation guidance
+- Consult error handling patterns from context
+- Review acceptance criteria for specific requirements
+- Use related files for implementation guidance
 - Retry with corrected approach
 
 ## Success Criteria
 
-Task implementation is complete when:
+PRP execution is complete when:
 
-- [ ] All acceptance criteria from task file met
+- [ ] All acceptance criteria from PRP met
 - [ ] All validation commands pass
-- [ ] Implementation follows patterns from linked domains
-- [ ] Feature requirements satisfied
-- [ ] Task status updated to 🟢 done
+- [ ] Implementation follows established patterns
+- [ ] Requirements satisfied
+- [ ] Status updated to done
 - [ ] Final validation suite passes
