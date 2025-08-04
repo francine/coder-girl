@@ -104,19 +104,40 @@ sub_tasks:
 ## 📁 Estrutura Principal
 
 ```
-PRPs/
-├── Domains/               # Mapas de conhecimento reutilizáveis
-├── Features/              # Funcionalidades detalhadas
-├── Tasks/                 # Ações executáveis com contexto embutido
-├── Examples/UI/           # Mockups de interface (auto-interpretados)
-├── System/
-│   ├── PRP-SYSTEM.md              # Framework completo
-│   ├── prp-generation-blueprint.md
-│   ├── prp-execution-blueprint.md
-│   ├── task-execution-blueprint.md
-│   └── *-template.md             # Modelos para criação de arquivos
-├── PRP-OVERVIEW.md         # Navegação e visão geral do sistema
-└── PROMPT.md               # Entrada principal com especificações do projeto
+/
+├── README.md                       # Documentação do repositório
+├── .claude
+│   └── commands
+│       ├── git-commit.md               # Comando de execução
+│       └── PRPs
+│           ├── generate-prp.md     # Comando de geração
+│           └── execute-prp.md      # Comando de execução
+└── PRPs/
+    ├── PRP-OVERVIEW.md             # Documentação do projeto específico
+    ├── PROMPT.md                   # Especificações do projeto
+    │
+    ├── System/                     # Framework e templates
+    │   ├── PRP-SYSTEM.md           # Esta documentação
+    │   ├── prp-generation-blueprint.md
+    │   ├── prp-execution-blueprint.md
+    │   ├── task-execution-blueprint.md
+    │   ├── domain-template.md
+    │   ├── feature-template.md
+    │   └── task-template.md
+    │
+    ├── Examples/                   # Exemplos e referências visuais
+    │   ├── UI/                     # Mockups e designs de interface
+    │   │   └── {Mockup}.png
+    │   └── {Outros}/               # Outros exemplos do sistema    
+    │
+    ├── Domains/                    # Mapas de conhecimento
+    │   └── {Description}.md        # Source of truth para modelos
+    │
+    ├── Features/                   # Zooms detalhados
+    │   └── {Description}.md
+    │
+    └── Tasks/                      # Ações executáveis
+        └── Task {Number} - {Description}.md
 ```
 
 ## 📝 Notas Importantes

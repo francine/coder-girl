@@ -167,11 +167,12 @@ execute-prp                     # Busca próxima task (in-progress ou todo)
 ├── README.md                       # Documentação do repositório
 ├── .claude
 │   └── commands
+│       ├── git-commit.md               # Comando de execução
 │       └── PRPs
 │           ├── generate-prp.md     # Comando de geração
 │           └── execute-prp.md      # Comando de execução
 └── PRPs/
-    ├── PRP-OVERVIEW.md                 # Documentação do projeto específico
+    ├── PRP-OVERVIEW.md             # Documentação do projeto específico
     ├── PROMPT.md                   # Especificações do projeto
     │
     ├── System/                     # Framework e templates
@@ -185,25 +186,17 @@ execute-prp                     # Busca próxima task (in-progress ou todo)
     │
     ├── Examples/                   # Exemplos e referências visuais
     │   ├── UI/                     # Mockups e designs de interface
-    │   │   ├── login-mockup.png
-    │   │   └── dashboard-layout.png
+    │   │   └── {Mockup}.png
     │   └── {Outros}/               # Outros exemplos do sistema    
     │
     ├── Domains/                    # Mapas de conhecimento
-    │   ├── Authentication Backend.md
-    │   ├── Frontend Architecture.md
-    │   ├── Quality Assurance.md
-    │   └── Data Architecture.md    # Source of truth para modelos
+    │   └── {Description}.md        # Source of truth para modelos
     │
     ├── Features/                   # Zooms detalhados
-    │   ├── User Login System.md
-    │   ├── Payment Integration.md
-    │   └── Data Export Feature.md
+    │   └── {Description}.md
     │
     └── Tasks/                      # Ações executáveis
-        ├── Task 01 - Implement JWT Auth.md
-        ├── Task 02 - Create User Dashboard.md
-        └── Task 03 - Setup Payment Gateway.md
+        └── Task {Number} - {Description}.md
 ```
 
 **Arquivos Principais**:
