@@ -1,131 +1,306 @@
 # generate-prp
 
-Generate comprehensive DTF (Domains-Tasks-Features) documentation from initial specification with thorough research and context engineering.
+Generate Features from requirements with autonomous research, modular thinking, and architectural blueprint documentation.
 
-## Initial File: $ARGUMENTS
+## Arguments: $ARGUMENTS
 
-If `$ARGUMENTS` is not provided, treat `$ARGUMENTS` as the document `PRPs/PROMPT.md`.
+**Default behavior (no arguments):**
+- Input: `PRPs/PROMPT.md` 
 
-Read the specification file first to understand what needs to be created, which domains are involved, and what features/tasks need to be implemented. The implementing AI will only get the context you create in the DTF files and their frontmatter links. Assume the AI agent has access to the codebase and websearch capabilities.
+**Custom files:**
+Pass custom filenames as arguments if using non-standard names.
+
+## Auto-initialization
+
+### Check STATE.md
+
+Load STATE.md is exists
+Load BLUEPRINT.md is exists
 
 ## Generation Process
 
-### Research Phase
+### Phase 1: RESEARCH (Autonomous Investigation)
 
-#### 1. Codebase Analysis
-- Search for similar features/patterns in the codebase
-- Identify reusable knowledge patterns for domains
-- Note existing conventions and implementation approaches
-- Review existing PRPs structure for similar features
-- Check test patterns for validation approach
-- Scan `PRPs/Examples/UI/` for visual references (mockups, layouts)
-- Extract layout patterns and UI structures from visual examples
+**Objective**: Gather all technical knowledge needed for implementation.
 
-#### 2. External Research
-- Search for relevant documentation and best practices for mentioned technologies
-- Find library documentation (include specific URLs for the AI agent)
-- Locate implementation examples (GitHub/StackOverflow/blogs)
-- Identify common pitfalls and gotchas
-- Note version-specific issues or library quirks
+#### System Analysis
+- Load STATE.md for current system signatures
+- Load BLUEPRINT.md if exists for module structure and navigation guide
+- Check `PRPs/Examples/Patterns/` for existing architectural patterns
+- Check `PRPs/Examples/Code/` for existing code templates and conventions
+- Check `PRPs/Examples/UI/` for visual references and mockups
+- Check for any other examples inside `PRPs/Examples/*/` folders
+- Scan codebase for patterns and conventions in use
+- Note naming conventions already established
+- Identify which patterns are being followed from Examples
+- Understand the established module boundaries and interfaces
 
-#### 3. User Clarification (if needed)
-- Specific patterns to mirror and where to find them?
-- Integration requirements and constraints?
-- Performance or security considerations?
+#### Technical Research
+Search and analyze:
+- Best practices for requested features
+- Library documentation and API references  
+- Security considerations and patterns
+- Performance optimization approaches
+- Common pitfalls and solutions
+- Module architecture patterns
 
-### Planning Phase
+**Time limit**: Maximum 3 minutes research phase
 
-- Map all domains needed and their hierarchical relationships
-- Identify each distinct feature with clear scope boundaries
-- Break features into atomic, executable tasks with proper severity
-- Plan frontmatter linking strategy for optimal context assembly
-- Design implementation blueprint with pseudocode approach
-- Consider error handling strategies and validation gates
-- For features involving UI, align implementation plan with patterns extracted from `Examples/UI/`
-- For tasks, include mockup references in context snapshot if visually driven
+### Phase 2: PLANNING
 
-*** CRITICAL AFTER YOU ARE DONE RESEARCHING AND EXPLORING THE CODEBASE BEFORE YOU START WRITING THE PRP ***
-*** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
+*** CRITICAL CHECKPOINT - STOP ALL RESEARCH ***
+*** BEGIN EXTENDED THINKING PHASE ***
 
-### Generation Phase
+**ULTRATHINK about MODULAR ARCHITECTURE:**
 
-Create the DTF files following exact structure and conventions:
+Consider the system as a collection of independent, cooperating modules.
+Think about:
+- What are the natural boundaries in this system?
+- How should functionality be grouped into modules?
+- What conceptual responsibilities should each module have?
+- How can module dependencies be made explicit?
 
-#### 1. Domain Files in `PRPs/Domains/`
+**ULTRATHINK about BLUEPRINT DOCUMENTATION:**
 
-- **Naming**: `{Title}.md`
-- **Content**: 
-  - Comprehensive knowledge patterns and implementation approaches
-  - Include URLs to documentation and best practices
-  - Reference existing codebase patterns
-  - Document common pitfalls and solutions
-- **Frontmatter**: Proper `up`, `related` links
+Design how you will document your modular ARCHITECTURE CONCEPTUALLY in BLUEPRINT.md:
+- What are the conceptual responsibilities of each module?
+- How do modules relate to each other logically?
+- What are the boundaries and interfaces between modules?
+- How will update-state identify these modules in ANY implementation?
 
-#### 2. Feature Files in `PRPs/Features/`
+Your BLUEPRINT.md should describe WHAT modules exist and WHY, not HOW they're implemented.
+Think of it as an architectural diagram, not a code map.
 
-- **Naming**: `{Short Description} {Subject}.md`
-- **Content**: 
-  - Complete implementation context, scope, dependencies
-  - Implementation blueprint with pseudocode
-  - Acceptance criteria and validation approach
-  - Error handling strategy
-- **Frontmatter**: Required `up`, `dependencies`, optional `related` links
+**think step-by-step through:**
+1. Module identification and conceptual boundaries
+2. Module responsibilities and purposes
+3. Feature assignment to modules
+4. Integration points between modules
+5. How to document this clearly in BLUEPRINT.md
 
-#### 3. Task Files in `PRPs/Tasks/`
+**ULTRATHINK about REUSABLE PATTERNS:**
+If you discovered something valuable during research, note it for later crystallization.
+Don't create examples for the sake of creating examples.
+Only preserve truly reusable discoveries.
 
-- **Naming**: `Task {NN} - {Verb} {Description}.md`
-- **Severity**: Assign appropriate level
-  - `critical`, `major`, `medium`, `minor`
-- **Status**: Set initial status
-  - `todo`, `in-progress`, `review`, `done`, `blocked`
-- **Content**: 
-  - Specific implementation steps
-  - Validation commands that are executable
-  - Reference to patterns in codebase
-  - Clear success criteria
-  - If UI-related, include visual reference from `Examples/UI/` in context snapshot
-- **Frontmatter**: Required `up`, `feature`, optional `related` links
+*** END EXTENDED THINKING PHASE ***
 
-### Context Engineering
+### Phase 3: GENERATION
 
-Plan frontmatter links to ensure execute-prp can assemble complete context:
+#### Generate Module Blueprint First
 
-- **Dependencies first**: Link to required knowledge domains
-- **Up chain**: Establish clear parent-child relationships  
-- **Feature relationships**: Connect tasks to parent features
-- **Related connections**: Create lateral knowledge networks
+Create/Update `PRPs/BLUEPRINT.md` documenting your modular architecture CONCEPTUALLY.
 
-Include in context:
-- **Documentation URLs**: With specific sections referenced
-- **Code Examples**: Real snippets from codebase
-- **Implementation Patterns**: Existing approaches to follow
-- **Validation Gates**: Executable commands for self-validation
-- **Visual Mockups**: Link mockups from `Examples/UI/` that inform visual implementation
+**BLUEPRINT must contain:**
+- Module conceptual responsibilities (WHAT each module does)
+- Module boundaries (what belongs to each module)
+- Module relationships (how modules connect)
+- Integration points (where modules interact)
 
-### Quality Validation
+**BLUEPRINT must NOT contain:**
+- Specific file names or paths
+- Function or class names
+- Implementation patterns
+- Code-level details
 
-#### Validation Checklist
-- [ ] All frontmatter links resolve to existing files
-- [ ] Context assembly paths provide complete implementation context
-- [ ] All specification requirements covered by generated files
-- [ ] Naming conventions match system standards
-- [ ] Severity and status assignments are appropriate
-- [ ] No circular dependencies in link structure
-- [ ] Validation gates are executable by AI
-- [ ] References to existing patterns included
-- [ ] Clear implementation path defined
-- [ ] Error handling documented
+The BLUEPRINT describes the ARCHITECTURE, not the IMPLEMENTATION.
+update-state will use this to understand what to look for, not where to find it.
 
-#### Quality Score
-Score the generated PRP structure on a scale of 1-10 for confidence level to succeed in one-pass implementation using execute-prp.
+**Example of GOOD blueprint entry:**
+```
+## Module: Authentication
+
+### Conceptual Responsibility
+Manages user identity, sessions, and access control
+
+### Module Boundaries
+- Owns: User verification, session management
+- Provides: User identity to other modules
+- Requires: Database connection
+
+### Integration Points
+- All protected modules check authentication
+- Provides user context to business modules
+```
+
+**Example of BAD blueprint entry (avoid this):**
+```
+## Module: Authentication
+- Files: auth.js, login.html
+- Functions: validateUser(), createSession()
+- Classes: AuthManager, SessionHandler
+```
+
+#### Crystallize Important Discoveries (Only if CRITICAL)
+
+**Before crystallizing, ask: Would NOT saving this cause:**
+- Security vulnerability? 
+- Performance disaster?
+- Silent production failure?
+- Impossible-to-debug issue?
+
+**If NO to all → DO NOT CRYSTALLIZE**
+
+**Examples to crystallize:**
+- Undocumented API quirks that crash systems
+- Counter-intuitive fixes for critical bugs
+- Hidden security requirements
+
+**Examples to SKIP:**
+- Standard patterns (JWT, REST, etc)
+- Common implementations
+- Anything execute-prp can figure out
+
+**If crystallization is justified:**
+- Patterns → `PRPs/Examples/Patterns/`
+- Code snippets → `PRPs/Examples/Code/`
+- UI approaches → `PRPs/Examples/UI/`
+
+When in doubt, DON'T. Let execute-prp be free.
+
+#### Generate Features
+
+Using `PRPs/.metadata/feature.template.md` as structure, generate Feature SPECIFICATIONS (not implementations).
+
+**CRITICAL: Features are SPECIFICATIONS for execute-prp to implement, NOT source code.**
+
+**Features MUST contain:**
+- WHAT needs to be built (requirements and objectives)
+- WHY it's needed (purpose and context)
+- HOW it should behave (functional specifications)
+- WHERE it fits in the architecture (module assignment)
+- ACCEPTANCE criteria (how to validate success)
+
+**Features MUST NOT contain:**
+- Complete source code files
+- Detailed implementation code
+- Specific code snippets longer than 3-4 lines
+- Bash commands to execute
+
+The execute-prp command will handle ALL code generation and implementation.
+Your role is to SPECIFY requirements, not write code.
+
+#### For each Feature identified:
+
+**Naming**: `PRPs/Features/{Clear Short Description}.md`
+- Include module assignment from BLUEPRINT.md
+
+**Content** (from template):
+- Complete SPECIFICATIONS for autonomous execution
+- References to relevant Examples/Patterns, Examples/Code and Examples/UI
+- Technical decisions and constraints from research
+- High-level approach following BLUEPRINT.md structure
+- Requirements that code must satisfy
+- Maximum 10k tokens total
+
+**Example References (not implementations):**
+```markdown
+## Technical Approach
+- Use JWT pattern from [[Examples/Patterns/auth-jwt-pattern.md]]
+- Follow module structure from [[Examples/Code/module-template.ts]]
+- Apply UI conventions from [[Examples/UI/design-system.md]]
+
+## Module Assignment
+This feature belongs to: [module-name] (as per BLUEPRINT.md)
+```
+
+*Note: If you discovered valuable patterns during research, save them in Examples/ for future reference. This is optional - focus on Feature specifications.*
+
+### Phase 4: INTEGRATION
+
+Update `PRPs/TASKS.md`.
+A simple TODO like document to orient the execução.
+Do not overengenerring this file.
+Sort TASKs in the correct order of execution.
+
+```markdown
+## Queue
+- [ ] 1. {Setup Initial Code Structure}
+- [ ] N. {Implement Feature}
+  - See feature {reference}
+- [ ] N. {Any Other Complementary Task}
+```
+
+### Phase 5: VALIDATION
+
+**Self-assessment checklist:**
+- [ ] BLUEPRINT.md describes conceptual architecture
+- [ ] Modules have clear conceptual boundaries
+- [ ] Module relationships are logical, not physical
+- [ ] No implementation details in BLUEPRINT
+- [ ] Each Feature contains specifications (not implementations)
+- [ ] Features follow BLUEPRINT.md patterns
+- [ ] All PROMPT.md requirements covered
+- [ ] update-state could understand module structure from any codebase
+
+## Quality Assessment
+
+After generating all Features, evaluate:
+
+**Autonomous Execution Check:**
+Ask yourself: "Can execute-prp implement these Features WITHOUT human intervention?"
+
+**Confidence Score: [1-10]**
+
+Rate the likelihood of successful autonomous implementation based on:
+- Completeness of specifications in each Feature
+- Clarity of requirements and constraints
+- All technical decisions documented (no ambiguity)
+- Dependencies and libraries clearly specified
+- Error handling strategies defined
+- Validation criteria executable
+
+**If score < 7:**
+Warning: "Low confidence for autonomous execution (X/10). Issues:
+- [Specific ambiguities or missing context]
+- [Technical decisions not resolved]
+- [Missing implementation details]
+
+Revise Features to include missing context before proceeding."
+
+**Report to user:**
+```
+Generated: X Features
+Examples created: Y Patterns, Z Code templates
+Modules documented: [list from BLUEPRINT.md]
+Autonomous execution confidence: N/10
+Reason: [Why this score - what might fail?]
+```
+
+**Insert this report at the top oi the BLUEPRINT.md as an info section**
 
 ## Success Criteria
 
-The generated DTF structure should enable autonomous AI implementation through execute-prp by providing:
-- Complete, linked context following dependency chains
-- Executable validation gates for self-verification
-- Clear references to existing patterns and documentation
-- Comprehensive error handling strategies
-- All necessary URLs and external resources
+The generated artifacts should:
+- BLUEPRINT.md provides clear conceptual architecture
+- Features contain complete specifications
+- Examples capture reusable knowledge (if any)
+- Features enable automatic code generation by execute-prp
+- Module boundaries are documented and maintained
 
-Remember: The goal is one-pass implementation success through comprehensive context engineering.
+## Critical Requirement
+
+**BLUEPRINT.md is the CONCEPTUAL CONTRACT between all commands.**
+
+The blueprint documents:
+- WHAT modules exist (conceptual units)
+- WHY they exist (responsibilities)
+- HOW they relate (logical connections)
+
+The blueprint does NOT document:
+- WHERE files are located
+- WHAT files are named
+- HOW code is structured
+
+This enables:
+- update-state to understand module structure conceptually
+- execute-prp to implement with complete freedom
+- generate-prp to maintain architectural consistency
+
+You have complete freedom in HOW you organize the architecture.
+You MUST document that organization clearly and conceptually in BLUEPRINT.md.
+ALL commands will follow this blueprint as the architectural truth.
+
+---
+
+Remember: You are the architect. BLUEPRINT.md is your architectural vision. Features are your specifications. execute-prp is your builder.

@@ -1,54 +1,61 @@
-# git-commit.md
+# git-commit
 
-> Gera mensagens de commit concisas, padronizadas e sem ambiguidade, seguindo o modelo `conventional commits`.
+> Generates concise, standardized, and unambiguous commit messages, following the `conventional commits` model.
 
-## 🎯 Objetivo
-Declarar com precisão **o que foi alterado e por quê**, de forma legível por humanos e máquinas.
+## Purpose
 
-## 📦 Estrutura
+Precisely declare **what was changed and why**, in a way that is readable by both humans and machines, considering only changes in files already added to the staging area.
+
+**Note**: Never add files to the staging area automatically.
+
+## Structure
+
 ```bash
-<tipo>(<escopo>): <resumo direto da mudança>
+<type>(<scope>): <direct summary of the change>
 
-- [opcional] bullets com decisões ou exemplos
-````
+- [optional] bullets with decisions or examples
+```
 
-## ✅ Tipos permitidos
+## Common Types
 
-* `feat`: nova funcionalidade (ex: nova feature, task ou domínio)
-* `fix`: correção de bug ou comportamento errado
-* `docs`: qualquer mudança em documentação ou contexto
-* `refactor`: reestruturação sem alterar comportamento
-* `style`: ajustes visuais, ortográficos ou semânticos
-* `test`: adição/ajuste de testes
-* `chore`: manutenção ou melhorias não-funcionais
-* `build`: mudanças em dependências, CI ou scripts
+* `feat`: Adds a new feature
+* `fix`: Fixes a bug
+* `docs`: Documentation changes
+* `style`: Code style changes (spacing, semicolons, etc.) with no functional impact
+* `refactor`: Code refactoring without changing functionality
+* `perf`: Performance improvements
+* `test`: Adding or updating tests
+* `build`: Changes that affect the build system or dependencies
+* `ci`: Changes to CI configuration files and scripts
+* `chore`: Other changes that don't modify src or tests
+* `revert`: Reverts a previous commit
 
-## 🎯 Escopos recomendados
+## Recommended Scopes
 
 * `system`, `commands`, `blueprint`, `template`
 * `domain`, `feature`, `task`
-* `docs` (quando transversal)
+* `docs` (when cross-cutting)
 
-## 🧪 Exemplos
+## Examples
 
 ```bash
-docs(system): transformar CLAUDE.md em README.md
+docs(system): convert CLAUDE.md to README.md
 
-- Remoção de referências à IA
-- Padronização com estrutura DFT
+- Removed AI references
+- Standardized with DFT structure
 ```
 
 ```bash
-feat(feature): adicionar comentários no blog
-fix(task): corrigir bug no export JSON
+feat(feature): add comments to blog
+fix(task): fix bug in JSON export
 ```
 
-## 🚫 Restrições
+## Restrictions
 
-* Não escreva o passo-a-passo do que foi feito — declare **o resultado final**
-* Não use frases vagas como "ajustes" ou "melhorias"
-* Não inclua explicações fora da mensagem de commit
+* Do not describe the step-by-step — declare **the final outcome**
+* Avoid vague terms like "adjustments" or "improvements"
+* Do not include explanations outside the commit message
 
-## 🧠 Dica
+## Tip
 
-Se a mudança não for testável, o commit deve pelo menos ser **rastreável e atômico**.
+If the change isn't testable, the commit should at least be **traceable and atomic**.

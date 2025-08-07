@@ -1,149 +1,253 @@
 # PRP Project Template
 
-## 📘 Visão Geral do Projeto
+**An opinionated implementation of Context Engineering for autonomous AI development**
 
-Este repositório implementa um sistema de documentação PRP (Product Requirements Prompts) que transforma especificações em linguagem natural em uma estrutura DFT (Domains-Features-Tasks). O objetivo é organizar conhecimento técnico e facilitar o desenvolvimento assistido por IA.
+## What is PRP?
 
-## 🧠 Arquitetura
+**Product Requirements Prompts (PRPs)** is a context engineering methodology for autonomous application development using AI agents. The methodology transforms human specifications into structured, intermediate documentation that enables complete implementation by AI using Claude Code.
 
-O sistema aplica uma pipeline de Context Engineering em três níveis:
+Instead of traditional prompt engineering (crafting clever one-shot instructions), PRP builds comprehensive context systems that provide AI agents with everything needed to autonomously develop complete applications.
 
-1. **Estrutura DFT (Domains → Features → Tasks)**:
+## Why Use PRP?
 
-   * **Domains/**: Padrões de conhecimento reutilizáveis e decisões arquiteturais
-   * **Features/**: Especificações detalhadas com critérios de aceitação
-   * **Tasks/**: Ações executáveis com rastreamento de severidade
-   * **Examples/**: Referências visuais para UI (especialmente `Examples/UI/`)
+Traditional AI development faces critical challenges that PRP solves:
 
-2. **Montagem de Contexto**:
+| **Challenge**            | **Traditional Approach**             | **PRP Solution**                        |
+|--------------------------|--------------------------------------|-----------------------------------------|
+| **Context Loss**         | AI forgets previous decisions        | Persistent architectural blueprints     |
+| **Fragmented Knowledge** | Scattered prompts and conversations  | Centralized, structured documentation   |
+| **Implementation Gaps**  | Manual translation of specs to code  | Direct autonomous implementation        |
 
-   * Arquivos interligados via frontmatter (`up`, `feature`, `dependencies`, `related`)
-   * Contexto montado até profundidade 3
-   * Ordem de montagem: dependencies → up → related → feature → target
-   * As tasks incluem o contexto completo embutido para execução autônoma
+### Core Benefits
 
-## ⚙️ Comandos Principais
+✅ **Complete Autonomy**: AI implements entire applications without human intervention  
+✅ **Architectural Consistency**: Modular blueprints ensure coherent system design  
+✅ **Context Preservation**: Critical insights crystallized for reuse  
+✅ **Quality Assurance**: Built-in validation and testing workflows  
+✅ **Team Scalability**: Standardized methodology for collaborative development  
 
-> Os comandos abaixo são conceituais e dependem de uma ferramenta externa para execução automatizada.
+## Quick Start
 
-* `generate-prp [especificacao.md]`: Gera a estrutura DFT a partir de especificações em linguagem natural.
+### Prerequisites
 
-  * **Fases**: Pesquisa → Planejamento → Geração → Validação
-  * Analisa `Examples/UI/` para gerar padrões de interface.
+1. **Claude Code CLI** installed and authenticated
+2. Clone this template repository
+3. Your requirements written in natural language
 
-* `execute-prp [Task {NN} - ...]`: Executa uma task com todo o contexto necessário.
+### Basic Usage Flow
 
-  * Gerencia ciclo de vida: `todo` → `in-progress` → `done`
-  * Realiza testes, validações e documentações conforme blueprint.
+**For New Projects:**
+```bash
+# 1. Write your requirements
+echo "Build a task management app with user auth" > PRPs/PROMPT.md
 
-## 🧩 Convenções e Organização
+# 2. Generate modular specifications
+claude /PRPs:generate-prp
 
-### Nomes de Arquivos
+# 3. Implement the entire application
+claude /PRPs:execute-prp
 
-* **Domains**: `{Área de Conhecimento}.md`
-* **Features**: `{Descrição da Funcionalidade}.md`
-* **Tasks**: `Task {NN} - {Verbo} {Descrição}.md`
+# 4. Create development scripts
+claude /make-scripts
 
-### Frontmatter Padrão
-
-```yaml
-type: domain|feature|task
-tags: [categoria, tecnologia, prioridade]
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-status: active|pending|completed|archived
+# 5. Run your application
+./run.sh
 ```
 
-Campos adicionais por tipo:
+**For Existing Systems:**
+```bash
+# 1. Analyze existing codebase first
+claude /PRPs:update-state
 
-* **Domains**: `up`, `related`
-* **Features**: `up`, `dependencies`, `related`
-* **Tasks**: `severity`, `feature`, `up`, `related`, `sub_tasks`
+# 2. Add new requirements
+echo "Add real-time notifications" >> PRPs/PROMPT.md
 
-### Status de Task
+# 3. Generate features respecting existing architecture
+claude /PRPs:generate-prp
 
-* `todo` → Não iniciada
-* `in-progress` → Em andamento
-* `review` → Aguardando revisão
-* `done` → Concluída
-* `blocked` → Bloqueada (`blocked_reason` obrigatório)
-
-### Sub-tasks
-
-```yaml
-sub_tasks:
-  - name: "Setup middleware"
-    status: todo
+# 4. Implement changes
+claude /PRPs:execute-prp
 ```
 
-## 🧠 Princípios de Context Engineering
+## Core Commands
 
-* **Sequenciamento Informacional**: Dependências → Visão Geral → Soluções → Combinações
-* **Relacionamentos Semânticos**: Hierárquico, lateral, bidirecional e ponderado
-* **Modelos de Dados**:
+### 🎯 generate-prp
+Transforms requirements into modular specifications with autonomous research and architectural design.
 
-  * **Source of Truth** nos arquivos de domain (ex: `Data Architecture.md`)
-  * **Snapshots** nas features com campos essenciais
+### ⚡ execute-prp
+Implements features with full context awareness and validation.
 
-## ✅ Quality Gates
+**Execution Modes:**
+- `execute-prp` - Execute all tasks automatically
+- `execute-prp -n` - Execute only the next task
+- `execute-prp -i` - Interactive mode with confirmation
+- `execute-prp "Feature"` - Execute specific feature
 
-**Durante `generate-prp`**:
+### 📊 update-state
+Analyzes existing codebase and generates comprehensive system signatures map.
 
-* Clareza dos requisitos
-* Consistência sistêmica
-* Completude das tasks
-* Integridade de integração
+### 🛠️ make-scripts
+Creates intelligent development (`run.sh`) and distribution (`make-dist.sh`) scripts.
 
-**Durante `execute-prp`**:
+### 📝 git-commit
+Generates standardized conventional commit messages.
 
-* Validação pré-execução
-* Compreensão de contexto
-* Implementação conforme padrões
-* Testes, validação e documentação
+## Project Structure
 
-## 📁 Estrutura Principal
-
-```
-/
-├── README.md                       # Documentação do repositório
-├── .claude
-│   └── commands
-│       ├── git-commit.md               # Comando de execução
-│       └── PRPs
-│           ├── generate-prp.md     # Comando de geração
-│           └── execute-prp.md      # Comando de execução
-└── PRPs/
-    ├── PRP-OVERVIEW.md             # Documentação do projeto específico
-    ├── PROMPT.md                   # Especificações do projeto
-    │
-    ├── System/                     # Framework e templates
-    │   ├── PRP-SYSTEM.md           # Esta documentação
-    │   ├── prp-generation-blueprint.md
-    │   ├── prp-execution-blueprint.md
-    │   ├── task-execution-blueprint.md
-    │   ├── domain-template.md
-    │   ├── feature-template.md
-    │   └── task-template.md
-    │
-    ├── Examples/                   # Exemplos e referências visuais
-    │   ├── UI/                     # Mockups e designs de interface
-    │   │   └── {Mockup}.png
-    │   └── {Outros}/               # Outros exemplos do sistema    
-    │
-    ├── Domains/                    # Mapas de conhecimento
-    │   └── {Description}.md        # Source of truth para modelos
-    │
-    ├── Features/                   # Zooms detalhados
-    │   └── {Description}.md
-    │
-    └── Tasks/                      # Ações executáveis
-        └── Task {Number} - {Description}.md
+```text
+/your-project
+│
+├── .claude/                    # Claude Code configuration
+│   └── commands/               # PRP methodology commands
+│       └── PRPs/              # Core system commands
+│
+└── PRPs/                      # Main PRP workspace
+    ├── PROMPT.md              # 📝 Your requirements (input)
+    ├── BLUEPRINT.md           # 🏗️ Conceptual architecture (generated)
+    ├── STATE.md               # 📊 System signatures map (generated)
+    ├── TASKS.md               # ✅ Execution roadmap (generated)
+    ├── Features/              # 📋 Feature specifications (generated)
+    ├── Examples/              # 💎 Reusable patterns & code
+    └── .metadata/             # 📋 Generation templates
 ```
 
-## 📝 Notas Importantes
+## Key Concepts
 
-1. Este repositório é um **template de documentação**, não contém código-fonte.
-2. Os comandos `generate-prp` e `execute-prp` são conceituais e exigem uma ferramenta externa.
-3. Não renomeie arquivos manualmente — isso quebra links e referências.
-4. Atualizações de status devem ocorrer apenas no frontmatter.
-5. `Examples/UI/` é escaneado automaticamente para gerar padrões visuais.
+### Context Engineering vs Prompt Engineering
+
+```
+Traditional Prompt Engineering:
+┌─────────────┐
+│ Clever      │ → AI → Output
+│ Prompt      │
+└─────────────┘
+
+PRP Context Engineering:
+┌─────────────────────────────────────────┐
+│ BLUEPRINT.md + STATE.md + Examples/     │
+│ + TASKS.md + Feature Specs + History    │ → AI → Complete
+│ + Templates + Validation Rules          │      │ Application
+└─────────────────────────────────────────┘      │
+                    ↑                            │
+                    └─────── Feedback ───────────┘
+```
+
+### The BLUEPRINT Contract
+
+BLUEPRINT.md is the **conceptual architectural contract** between all commands:
+- Documents **WHAT** modules exist (conceptual units)
+- Describes **WHY** they exist (responsibilities)
+- Defines **HOW** they relate (logical connections)
+- Never specifies implementation details
+
+This enables complete implementation freedom while maintaining architectural consistency.
+
+## Example: Your First PRP Project
+
+### Step 1: Define Requirements
+```markdown
+# PRPs/PROMPT.md
+
+Build a blog platform with:
+- User registration and authentication
+- Create, edit, delete posts
+- Comments with moderation
+- Categories and tags
+- Search functionality
+- Admin dashboard
+- Mobile-responsive design
+
+Tech preferences: Modern web stack
+Target: Small to medium blogs
+```
+
+### Step 2: Generate & Execute
+```bash
+# Generate architecture and features
+claude /PRPs:generate-prp
+
+# Review generated BLUEPRINT.md and Features/
+
+# Implement everything
+claude /PRPs:execute-prp
+
+# Create dev environment
+claude /make-scripts
+
+# Launch application
+./run.sh
+```
+
+## Best Practices
+
+### Writing Effective Requirements
+
+✅ **Good Examples:**
+- "Build a customer support ticketing system with email integration"
+- "Create a URL shortener like bit.ly with analytics"
+- "Develop a real-estate listing platform with virtual tours"
+
+❌ **Avoid:**
+- Too vague: "Make a good website"
+- Over-constrained: Specifying exact libraries and implementation details
+
+### Crystallization Philosophy
+
+Only preserve discoveries that would cause **critical failures** if lost:
+- Security vulnerabilities
+- Silent production bugs
+- Performance disasters
+- Undocumented API quirks
+
+Skip common patterns that can be rediscovered.
+
+## Integration with Teams
+
+### Repository Setup
+```bash
+# Version control PRP methodology
+git add .claude/commands/
+git add PRPs/.metadata/
+git add PRPs/Examples/
+
+# Generated files (not versioned)
+echo "PRPs/STATE.md" >> .gitignore
+echo "PRPs/TASKS.md" >> .gitignore
+```
+
+### Team Workflow
+1. Collaborate on requirements in `PROMPT.md`
+2. Review generated `BLUEPRINT.md` before implementation
+3. Use interactive mode for collaborative execution
+4. Share valuable patterns in `Examples/`
+5. Keep `STATE.md` current with regular updates
+
+## Getting Started
+
+1. **Clone this template**
+   ```bash
+   git clone https://github.com/your-org/prp-project-template my-project
+   cd my-project
+   ```
+
+2. **Install Claude Code**
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   claude auth login
+   ```
+
+3. **Write your requirements** in `PRPs/PROMPT.md`
+
+4. **Let PRP handle the rest** with the commands above
+
+## Learn More
+
+- Read the full methodology in `PRPs/METHODOLOGY.md`
+- Explore command documentation in `.claude/commands/`
+- Check templates in `PRPs/.metadata/`
+
+---
+
+**Remember**: PRP isn't about replacing your development skills—it's about amplifying them. You remain the architect, defining requirements and making strategic decisions. The methodology ensures your architectural vision gets implemented completely and consistently, every time.
+
+*PRP represents a fundamental shift from prompt crafting to context engineering, enabling truly autonomous AI development that scales with your ambitions.*
