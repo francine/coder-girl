@@ -42,52 +42,31 @@ Traditional AI development faces critical challenges that PRP solves:
 echo "Build a task management app with user auth" > PRPs/PROMPT.md
 
 # 2. Generate modular specifications
-claude /PRPs:generate-prp
+claude /PRPs:gerar-prp
 
 # 3. Implement the entire application
-claude /PRPs:execute-prp
-
-# 4. Create development scripts
-claude /make-scripts
-
-# 5. Run your application
-./run.sh
+claude /PRPs:executar-prp
 ```
 
 **For Existing Systems:**
 ```bash
-# 1. Analyze existing codebase first
-claude /PRPs:update-state
-
-# 2. Add new requirements
+# 1. Add new requirements
 echo "Add real-time notifications" >> PRPs/PROMPT.md
 
-# 3. Generate features respecting existing architecture
-claude /PRPs:generate-prp
+# 2. Generate features respecting existing architecture
+claude /PRPs:gerar-prp
 
-# 4. Implement changes
-claude /PRPs:execute-prp
+# 3. Implement changes
+claude /PRPs:executar-prp
 ```
 
 ## Core Commands
 
-### 🎯 generate-prp
+### 🎯 gerar-prp
 Transforms requirements into modular specifications with autonomous research and architectural design.
 
-### ⚡ execute-prp
+### ⚡ executar-prp
 Implements features with full context awareness and validation.
-
-**Execution Modes:**
-- `execute-prp` - Execute all tasks automatically
-- `execute-prp -n` - Execute only the next task
-- `execute-prp -i` - Interactive mode with confirmation
-- `execute-prp "Feature"` - Execute specific feature
-
-### 📊 update-state
-Analyzes existing codebase and generates comprehensive system signatures map.
-
-### 🛠️ make-scripts
-Creates intelligent development (`run.sh`) and distribution (`make-dist.sh`) scripts.
 
 ### 📝 git-commit
 Generates standardized conventional commit messages.
@@ -100,15 +79,14 @@ Generates standardized conventional commit messages.
 ├── .claude/                    # Claude Code configuration
 │   └── commands/               # PRP methodology commands
 │       └── PRPs/              # Core system commands
+│           ├── gerar-prp.md   # Command to generate PRPs
+│           └── executar-prp.md # Command to execute PRPs
 │
 └── PRPs/                      # Main PRP workspace
     ├── PROMPT.md              # 📝 Your requirements (input)
-    ├── BLUEPRINT.md           # 🏗️ Conceptual architecture (generated)
-    ├── STATE.md               # 📊 System signatures map (generated)
-    ├── TASKS.md               # ✅ Execution roadmap (generated)
-    ├── Features/              # 📋 Feature specifications (generated)
-    ├── Examples/              # 💎 Reusable patterns & code
-    └── .metadata/             # 📋 Generation templates
+    ├── examples/              # 💎 Reusable patterns & code
+    └── templates/             # 📋 PRP generation templates
+        └── template-prp.md    # Template for generating new PRPs
 ```
 
 ## Key Concepts
@@ -124,23 +102,23 @@ Traditional Prompt Engineering:
 
 PRP Context Engineering:
 ┌─────────────────────────────────────────┐
-│ BLUEPRINT.md + STATE.md + Examples/     │
-│ + TASKS.md + Feature Specs + History    │ → AI → Complete
-│ + Templates + Validation Rules          │      │ Application
+│ PRP Templates + Examples + Project      │
+│ Context + Requirements + History        │ → AI → Complete
+│ + Implementation Patterns               │      │ Application
 └─────────────────────────────────────────┘      │
                     ↑                            │
                     └─────── Feedback ───────────┘
 ```
 
-### The BLUEPRINT Contract
+### The PRP Template Contract
 
-BLUEPRINT.md is the **conceptual architectural contract** between all commands:
-- Documents **WHAT** modules exist (conceptual units)
-- Describes **WHY** they exist (responsibilities)
-- Defines **HOW** they relate (logical connections)
-- Never specifies implementation details
+The PRP template (`PRPs/templates/template-prp.md`) provides the **structured framework** for all generated PRPs:
+- Documents **WHAT** needs to be built (requirements)
+- Describes **WHY** it's needed (problem statement)
+- Defines **HOW** to implement it (step-by-step plan)
+- Includes validation and testing criteria
 
-This enables complete implementation freedom while maintaining architectural consistency.
+This enables consistent implementation while maintaining flexibility in technical choices.
 
 ## Example: Your First PRP Project
 
@@ -163,19 +141,13 @@ Target: Small to medium blogs
 
 ### Step 2: Generate & Execute
 ```bash
-# Generate architecture and features
-claude /PRPs:generate-prp
+# Generate PRP from requirements
+claude /PRPs:gerar-prp
 
-# Review generated BLUEPRINT.md and Features/
+# Review generated PRP file
 
 # Implement everything
-claude /PRPs:execute-prp
-
-# Create dev environment
-claude /make-scripts
-
-# Launch application
-./run.sh
+claude /PRPs:executar-prp
 ```
 
 ## Best Practices
@@ -207,20 +179,20 @@ Skip common patterns that can be rediscovered.
 ```bash
 # Version control PRP methodology
 git add .claude/commands/
-git add PRPs/.metadata/
-git add PRPs/Examples/
+git add PRPs/templates/
+git add PRPs/examples/
 
-# Generated files (not versioned)
-echo "PRPs/STATE.md" >> .gitignore
-echo "PRPs/TASKS.md" >> .gitignore
+# Generated PRP files can be versioned or not, depending on team preference
+# To exclude them:
+# echo "PRPs/*.prp.md" >> .gitignore
 ```
 
 ### Team Workflow
 1. Collaborate on requirements in `PROMPT.md`
-2. Review generated `BLUEPRINT.md` before implementation
-3. Use interactive mode for collaborative execution
-4. Share valuable patterns in `Examples/`
-5. Keep `STATE.md` current with regular updates
+2. Review generated PRP files before implementation
+3. Execute PRPs to implement features
+4. Share valuable patterns in `examples/`
+5. Update `PROMPT.md` as requirements evolve
 
 ## Getting Started
 
@@ -242,9 +214,10 @@ echo "PRPs/TASKS.md" >> .gitignore
 
 ## Learn More
 
-- Read the full methodology in `PRPs/METHODOLOGY.md`
-- Explore command documentation in `.claude/commands/`
-- Check templates in `PRPs/.metadata/`
+- Explore command documentation in `.claude/commands/PRPs/`
+- Check PRP templates in `PRPs/templates/`
+- Review examples in `PRPs/examples/`
+- Read `NEXT-STEPS.md` for advanced patterns and context management
 
 ---
 

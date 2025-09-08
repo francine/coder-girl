@@ -1,61 +1,70 @@
 # git-commit
 
-> Generates concise, standardized, and unambiguous commit messages, following the `conventional commits` model.
+## Objetivo
 
-## Purpose
+Registrar mudanças com mensagens de commit concisas, em pt-BR, padronizadas e inequívocas, seguindo o modelo `conventional commits`.
 
-Precisely declare **what was changed and why**, in a way that is readable by both humans and machines, considering only changes in files already added to the staging area.
+## Instruções
 
-**Note**: Never add files to the staging area automatically.
+Leia $ARGUMENTS como opções.
 
-## Structure
+**Modo de commit**: Se a opção `-all` for fornecida, habilite o modo full-commit; caso contrário, habilite o modo stage-only.
+
+**Validação de stage**: Se o modo full-commit estiver habilitado, adicione todos os arquivos da pasta atual e suas subpastas ao stage, equivalente a `git add -A .`. Se o modo stage-only estiver habilitado, faça commit apenas do que já está no stage.
+
+**Mensagem de commit**: Declare claramente **o que foi alterado e por quê**, de forma legível tanto para humanos quanto para máquinas, considerando apenas mudanças nos arquivos já adicionados ao stage.
+
+**Ferramentas extras**: Use o TodoWrite para orientar a execução.
+
+## Estrutura
 
 ```bash
-<type>(<scope>): <direct summary of the change>
+<tipo>(<escopo>): <resumo direto da mudança>
 
-- [optional] bullets with decisions or examples
+- [opcional] bullets com decisões ou exemplos
 ```
 
-## Common Types
+## Tipos comuns
 
-* `feat`: Adds a new feature
-* `fix`: Fixes a bug
-* `docs`: Documentation changes
-* `style`: Code style changes (spacing, semicolons, etc.) with no functional impact
-* `refactor`: Code refactoring without changing functionality
-* `perf`: Performance improvements
-* `test`: Adding or updating tests
-* `build`: Changes that affect the build system or dependencies
-* `ci`: Changes to CI configuration files and scripts
-* `chore`: Other changes that don't modify src or tests
-* `revert`: Reverts a previous commit
+* `feat`: Adiciona uma nova funcionalidade
+* `fix`: Corrige um bug
+* `docs`: Alterações na documentação
+* `style`: Mudanças de estilo de código (espaços, ponto e vírgula, etc.) sem impacto funcional
+* `refactor`: Refatoração de código sem alterar funcionalidade
+* `perf`: Melhorias de performance
+* `test`: Adição ou atualização de testes
+* `build`: Mudanças que afetam o sistema de build ou dependências
+* `ci`: Alterações em arquivos e scripts de CI
+* `chore`: Outras mudanças que não modificam src ou testes
+* `revert`: Reverte um commit anterior
 
-## Recommended Scopes
+## Escopos recomendados
 
 * `system`, `commands`, `blueprint`, `template`
 * `domain`, `feature`, `task`
-* `docs` (when cross-cutting)
+* `docs` (quando transversal)
 
-## Examples
+## Exemplos
 
 ```bash
-docs(system): convert CLAUDE.md to README.md
+docs(system): converter CLAUDE.md para README.md
 
-- Removed AI references
-- Standardized with DFT structure
+- Removidas referências a IA
+- Padronizado com a estrutura DFT
 ```
 
 ```bash
-feat(feature): add comments to blog
-fix(task): fix bug in JSON export
+feat(feature): adicionar comentários ao blog
+fix(task): corrigir bug na exportação JSON
 ```
 
-## Restrictions
+## Restrições
 
-* Do not describe the step-by-step — declare **the final outcome**
-* Avoid vague terms like "adjustments" or "improvements"
-* Do not include explanations outside the commit message
+* Não descreva o passo a passo — declare **o resultado final**
+* Evite termos vagos como "ajustes" ou "melhorias"
+* Não inclua explicações fora da mensagem de commit
+* Escreva texto em pt-BR.
 
-## Tip
+## Dica
 
-If the change isn't testable, the commit should at least be **traceable and atomic**.
+Se a mudança não for testável, o commit deve ser ao menos **rastreável e atômico**.
