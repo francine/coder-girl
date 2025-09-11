@@ -43,7 +43,7 @@ Gera um PRP (Product Requirements Prompts) em pt-BR, baseado em um prompt, por m
 
 ## Fase 6: Geração do PRP
 
-* Usar `PRPs/templates/template-prp.md`.
+* Usar `PRPs/metodologia/template-prp.md`.
 * Preencher completamente todas as seções aplicáveis do template. Descartar seções não aplicáveis.
 * Incluir referências em três níveis: (1) artefatos do projeto, (2) exemplos, (3) fontes externas.
 * Documentar *gotchas*: peculiaridades de bibliotecas, problemas de versão etc.

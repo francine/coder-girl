@@ -85,7 +85,7 @@ Generates standardized conventional commit messages.
 └── PRPs/                      # Main PRP workspace
     ├── PROMPT.md              # 📝 Your requirements (input)
     ├── examples/              # 💎 Reusable patterns & code
-    └── templates/             # 📋 PRP generation templates
+    └── metodologia/             # 📋 PRP generation templates
         └── template-prp.md    # Template for generating new PRPs
 ```
 
@@ -112,7 +112,7 @@ PRP Context Engineering:
 
 ### The PRP Template Contract
 
-The PRP template (`PRPs/templates/template-prp.md`) provides the **structured framework** for all generated PRPs:
+The PRP template (`PRPs/metodologia/template-prp.md`) provides the **structured framework** for all generated PRPs:
 - Documents **WHAT** needs to be built (requirements)
 - Describes **WHY** it's needed (problem statement)
 - Defines **HOW** to implement it (step-by-step plan)
@@ -179,7 +179,7 @@ Skip common patterns that can be rediscovered.
 ```bash
 # Version control PRP methodology
 git add .claude/commands/
-git add PRPs/templates/
+git add PRPs/metodologia/
 git add PRPs/examples/
 
 # Generated PRP files can be versioned or not, depending on team preference
@@ -215,7 +215,7 @@ git add PRPs/examples/
 ## Learn More
 
 - Explore command documentation in `.claude/commands/PRPs/`
-- Check PRP templates in `PRPs/templates/`
+- Check PRP templates in `PRPs/metodologia/`
 - Review examples in `PRPs/examples/`
 - Read `NEXT-STEPS.md` for advanced patterns and context management
 
