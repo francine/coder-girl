@@ -86,7 +86,8 @@
       "Bash(nano:*)",
       "Bash(code:*)",
       "Bash(cat:*:*)",
-      "Bash(find:*:*)"
+      "Bash(find:*:*)",
+      "WebSearch"
     ],
     "deny": []
   }

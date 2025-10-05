@@ -143,17 +143,16 @@ function Dashboard() {
                 colorField="status"
                 radius={0.8}
                 innerRadius={0.4}
-                color={({ status }) => {
+                color={({ status }: { status: string }) => {
                   const item = pipelineData.find(d => d.status === status);
                   return item?.color || '#1890ff';
                 }}
                 label={{
-                  type: 'inner',
-                  offset: '-30%',
-                  content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+                  content: ({ percent }: { percent: number }) => `${(percent * 100).toFixed(0)}%`,
                   style: {
                     fontSize: 14,
                     textAlign: 'center',
+                    fill: '#fff',
                   },
                 }}
                 legend={{

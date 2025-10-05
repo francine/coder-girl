@@ -18,7 +18,7 @@ import {
   DeleteOutlined, 
   BulbOutlined,
 } from '@ant-design/icons';
-import { useApp } from '../contexts/AppContext';
+import { useApp, Idea } from '../contexts/AppContext';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -34,7 +34,7 @@ const statusOptions = [
 function Ideas() {
   const { state, dispatch, actionTypes } = useApp();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editingIdea, setEditingIdea] = useState(null);
+  const [editingIdea, setEditingIdea] = useState<Idea | null>(null);
   const [form] = Form.useForm();
 
   const handleAddIdea = () => {
@@ -43,18 +43,18 @@ function Ideas() {
     setIsModalVisible(true);
   };
 
-  const handleEditIdea = (idea) => {
+  const handleEditIdea = (idea: Idea) => {
     setEditingIdea(idea);
     form.setFieldsValue(idea);
     setIsModalVisible(true);
   };
 
-  const handleDeleteIdea = (id) => {
+  const handleDeleteIdea = (id: string) => {
     dispatch({ type: actionTypes.DELETE_IDEA, payload: id });
     message.success('Ideia removida com sucesso!');
   };
 
-  const handleFormSubmit = (values) => {
+  const handleFormSubmit = (values: any) => {
     const ideaData = {
       ...values,
       id: editingIdea?.id || Date.now().toString(),
@@ -80,19 +80,19 @@ function Ideas() {
       title: 'Título',
       dataIndex: 'title',
       key: 'title',
-      render: (text) => <strong>{text}</strong>,
+      render: (text: string) => <strong>{text}</strong>,
     },
     {
       title: 'Conteúdo',
       dataIndex: 'content',
       key: 'content',
-      render: (text) => text?.substring(0, 100) + (text?.length > 100 ? '...' : ''),
+      render: (text: string) => text?.substring(0, 100) + (text?.length > 100 ? '...' : ''),
     },
     {
       title: 'Status',
       dataIndex: 'status',
       key: 'status',
-      render: (status) => {
+      render: (status: string) => {
         const statusConfig = statusOptions.find(opt => opt.value === status);
         return <Tag color={statusConfig?.color}>{statusConfig?.label}</Tag>;
       },
@@ -101,7 +101,7 @@ function Ideas() {
       title: 'Tags',
       dataIndex: 'tags',
       key: 'tags',
-      render: (tags) => (
+      render: (tags: string[]) => (
         <Space>
           {tags?.map(tag => <Tag key={tag}>{tag}</Tag>)}
         </Space>
@@ -111,12 +111,12 @@ function Ideas() {
       title: 'Criado em',
       dataIndex: 'createdAt',
       key: 'createdAt',
-      render: (date) => new Date(date).toLocaleDateString('pt-BR'),
+      render: (date: string) => new Date(date).toLocaleDateString('pt-BR'),
     },
     {
       title: 'Ações',
       key: 'actions',
-      render: (_, record) => (
+      render: (_: any, record: Idea) => (
         <Space>
           <Button 
             type="text" 

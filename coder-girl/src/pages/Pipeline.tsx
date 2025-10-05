@@ -7,7 +7,7 @@ import {
   RocketOutlined,
   ScheduleOutlined,
 } from '@ant-design/icons';
-import { useApp } from '../contexts/AppContext';
+import { useApp, Idea } from '../contexts/AppContext';
 
 const { Title, Text } = Typography;
 
@@ -41,11 +41,11 @@ const pipelineColumns = [
 function Pipeline() {
   const { state, dispatch, actionTypes } = useApp();
 
-  const getIdeasByStatus = (status) => {
+  const getIdeasByStatus = (status: string) => {
     return state.ideas.filter(idea => idea.status === status);
   };
 
-  const handleDragStart = (e, idea) => {
+  const handleDragStart = (e: React.DragEvent, idea: Idea) => {
     e.dataTransfer.setData('text/plain', JSON.stringify(idea));
   };
 

@@ -1,8 +1,47 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 
-const AppContext = createContext();
+interface Idea {
+  id: string;
+  title: string;
+  content: string;
+  status: 'draft' | 'review' | 'ready' | 'published';
+  createdAt: string;
+  updatedAt: string;
+  tags: string[];
+  priority: 'low' | 'medium' | 'high';
+}
 
-const initialState = {
+interface Metrics {
+  totalIdeas: number;
+  drafts: number;
+  inReview: number;
+  ready: number;
+  published: number;
+  thisWeek: number;
+  thisMonth: number;
+}
+
+interface AppState {
+  ideas: Idea[];
+  loading: boolean;
+  error: string | null;
+  metrics: Metrics;
+}
+
+interface AppAction {
+  type: string;
+  payload?: any;
+}
+
+interface AppContextType {
+  state: AppState;
+  dispatch: React.Dispatch<AppAction>;
+  actionTypes: typeof actionTypes;
+}
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+const initialState: AppState = {
   ideas: [],
   loading: false,
   error: null,
@@ -25,9 +64,9 @@ const actionTypes = {
   UPDATE_IDEA: 'UPDATE_IDEA',
   DELETE_IDEA: 'DELETE_IDEA',
   UPDATE_METRICS: 'UPDATE_METRICS',
-};
+} as const;
 
-function appReducer(state, action) {
+function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case actionTypes.SET_LOADING:
       return { ...state, loading: action.payload };
@@ -63,7 +102,11 @@ function appReducer(state, action) {
   }
 }
 
-export function AppProvider({ children }) {
+interface AppProviderProps {
+  children: ReactNode;
+}
+
+export function AppProvider({ children }: AppProviderProps) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   // Calculate metrics whenever ideas change
@@ -72,7 +115,7 @@ export function AppProvider({ children }) {
     const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
     const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
 
-    const metrics = {
+    const metrics: Metrics = {
       totalIdeas: state.ideas.length,
       drafts: state.ideas.filter(idea => idea.status === 'draft').length,
       inReview: state.ideas.filter(idea => idea.status === 'review').length,
@@ -85,7 +128,7 @@ export function AppProvider({ children }) {
     dispatch({ type: actionTypes.UPDATE_METRICS, payload: metrics });
   }, [state.ideas]);
 
-  const value = {
+  const value: AppContextType = {
     state,
     dispatch,
     actionTypes,
@@ -94,10 +137,12 @@ export function AppProvider({ children }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
-export function useApp() {
+export function useApp(): AppContextType {
   const context = useContext(AppContext);
   if (!context) {
     throw new Error('useApp must be used within an AppProvider');
   }
   return context;
 }
+
+export type { Idea, Metrics, AppState, AppAction };

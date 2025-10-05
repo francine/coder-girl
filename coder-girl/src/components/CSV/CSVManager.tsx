@@ -3,12 +3,12 @@ import {
   Space, 
   Button, 
   Upload, 
-  Modal, 
   Typography, 
   Alert,
   Divider,
   message,
   Card,
+  UploadFile,
 } from 'antd';
 import { 
   DownloadOutlined, 
@@ -22,11 +22,15 @@ import { useCSV } from '../../hooks/useCSV';
 const { Title, Text, Paragraph } = Typography;
 const { Dragger } = Upload;
 
-function CSVManager({ onClose }) {
+interface CSVManagerProps {
+  onClose: () => void;
+}
+
+function CSVManager({ onClose }: CSVManagerProps) {
   const { state, dispatch, actionTypes } = useApp();
   const { exportToCSV, importFromCSV, validateCSVStructure } = useCSV();
   const [importing, setImporting] = useState(false);
-  const [importFile, setImportFile] = useState(null);
+  const [importFile, setImportFile] = useState<File | null>(null);
 
   const handleExport = () => {
     if (state.ideas.length === 0) {
@@ -38,13 +42,13 @@ function CSVManager({ onClose }) {
     exportToCSV(state.ideas, filename);
   };
 
-  const handleFileSelect = async (file) => {
+  const handleFileSelect = async (file: File) => {
     try {
       await validateCSVStructure(file);
       setImportFile(file);
       return false; // Prevent automatic upload
     } catch (error) {
-      message.error(error.message);
+      message.error((error as Error).message);
       return false;
     }
   };
@@ -65,7 +69,7 @@ function CSVManager({ onClose }) {
       setImportFile(null);
       onClose();
     } catch (error) {
-      message.error(error.message);
+      message.error((error as Error).message);
     } finally {
       setImporting(false);
     }
@@ -77,7 +81,12 @@ function CSVManager({ onClose }) {
     accept: '.csv',
     beforeUpload: handleFileSelect,
     onRemove: () => setImportFile(null),
-    fileList: importFile ? [importFile] : [],
+    fileList: importFile ? [{
+      uid: importFile.name,
+      name: importFile.name,
+      status: 'done',
+      originFileObj: importFile,
+    } as UploadFile] : [],
   };
 
   return (

@@ -1,11 +1,22 @@
 import { useCallback } from 'react';
 import Papa from 'papaparse';
 import { message } from 'antd';
+import { Idea } from '../contexts/AppContext';
+
+interface CSVIdea {
+  id: string;
+  title: string;
+  content: string;
+  status: string;
+  tags: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export function useCSV() {
-  const exportToCSV = useCallback((data, filename = 'coder-girl-data.csv') => {
+  const exportToCSV = useCallback((data: Idea[], filename = 'coder-girl-data.csv') => {
     try {
-      const csvData = data.map(idea => ({
+      const csvData: CSVIdea[] = data.map(idea => ({
         id: idea.id,
         title: idea.title,
         content: idea.content,
@@ -17,7 +28,6 @@ export function useCSV() {
 
       const csv = Papa.unparse(csvData, {
         header: true,
-        encoding: 'UTF-8',
       });
 
       // Add BOM for UTF-8 encoding
@@ -46,36 +56,44 @@ export function useCSV() {
     }
   }, []);
 
-  const importFromCSV = useCallback((file) => {
+  const importFromCSV = useCallback((file: File): Promise<Idea[]> => {
     return new Promise((resolve, reject) => {
-      Papa.parse(file, {
+      Papa.parse<any>(file, {
         header: true,
-        encoding: 'UTF-8',
         skipEmptyLines: true,
-        complete: (results) => {
+        complete: (results: Papa.ParseResult<any>) => {
           try {
             if (results.errors && results.errors.length > 0) {
               console.warn('CSV parsing warnings:', results.errors);
             }
 
-            const validatedData = results.data.map((row, index) => {
+            const validatedData: Idea[] = results.data.map((row: any, index: number) => {
               // Validate required fields
               if (!row.title || !row.content) {
                 throw new Error(`Linha ${index + 1}: Título e conteúdo são obrigatórios`);
               }
 
               // Validate status
-              const validStatuses = ['draft', 'review', 'ready', 'published'];
-              if (!validStatuses.includes(row.status)) {
-                row.status = 'draft'; // Default to draft if invalid
+              const validStatuses: Idea['status'][] = ['draft', 'review', 'ready', 'published'];
+              let status: Idea['status'] = 'draft';
+              if (validStatuses.includes(row.status)) {
+                status = row.status;
+              }
+
+              // Validate priority
+              const validPriorities: Idea['priority'][] = ['low', 'medium', 'high'];
+              let priority: Idea['priority'] = 'medium';
+              if (validPriorities.includes(row.priority)) {
+                priority = row.priority;
               }
 
               return {
                 id: row.id || Date.now().toString() + Math.random().toString(36),
                 title: row.title.trim(),
                 content: row.content.trim(),
-                status: row.status,
-                tags: row.tags ? row.tags.split(';').filter(tag => tag.trim()) : [],
+                status,
+                priority,
+                tags: row.tags ? row.tags.split(';').filter((tag: string) => tag.trim()) : [],
                 createdAt: row.createdAt || new Date().toISOString(),
                 updatedAt: row.updatedAt || new Date().toISOString(),
               };
@@ -87,19 +105,19 @@ export function useCSV() {
             reject(error);
           }
         },
-        error: (error) => {
+        error: (error: Error) => {
           reject(new Error('Erro ao processar arquivo CSV: ' + error.message));
         }
       });
     });
   }, []);
 
-  const validateCSVStructure = useCallback((file) => {
+  const validateCSVStructure = useCallback((file: File): Promise<boolean> => {
     return new Promise((resolve, reject) => {
-      Papa.parse(file, {
+      Papa.parse<any>(file, {
         header: true,
         preview: 1, // Only parse first row to check structure
-        complete: (results) => {
+        complete: (results: Papa.ParseResult<any>) => {
           const headers = results.meta.fields || [];
           const requiredHeaders = ['title', 'content'];
           const missingHeaders = requiredHeaders.filter(h => !headers.includes(h));
@@ -110,7 +128,7 @@ export function useCSV() {
             resolve(true);
           }
         },
-        error: (error) => {
+        error: (error: Error) => {
           reject(new Error('Arquivo CSV inválido: ' + error.message));
         }
       });

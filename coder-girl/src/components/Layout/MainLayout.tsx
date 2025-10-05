@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Typography, Avatar, Space, Button, Modal } from 'antd';
+import React, { useState, ReactNode } from 'react';
+import { Layout, Menu, Typography, Avatar, Space, Button, Modal, MenuProps } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   DashboardOutlined,
@@ -15,7 +15,11 @@ import CSVManager from '../CSV/CSVManager';
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
 
-const menuItems = [
+interface MainLayoutProps {
+  children: ReactNode;
+}
+
+const menuItems: MenuProps['items'] = [
   {
     key: '/',
     icon: <DashboardOutlined />,
@@ -33,14 +37,27 @@ const menuItems = [
   },
 ];
 
-function MainLayout({ children }) {
+function MainLayout({ children }: MainLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [csvModalVisible, setCsvModalVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleMenuClick = ({ key }) => {
+  const handleMenuClick = ({ key }: { key: string }) => {
     navigate(key);
+  };
+
+  const getPageTitle = () => {
+    switch (location.pathname) {
+      case '/':
+        return 'Dashboard';
+      case '/ideas':
+        return 'Ideias';
+      case '/pipeline':
+        return 'Pipeline';
+      default:
+        return 'Dashboard';
+    }
   };
 
   return (
@@ -98,7 +115,7 @@ function MainLayout({ children }) {
             })}
             
             <Title level={3} style={{ margin: '0 0 0 16px' }}>
-              {menuItems.find(item => item.key === location.pathname)?.label || 'Dashboard'}
+              {getPageTitle()}
             </Title>
           </div>
           
