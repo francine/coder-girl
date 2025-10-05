@@ -238,28 +238,28 @@ npm run build
 
 ## Checklist de Execução
 
-- [ ] Configurar projeto React com Create React App
-- [ ] Instalar dependências: antd, react-papaparse, react-router-dom
-- [ ] Criar estrutura de pastas: components, contexts, hooks, utils
-- [ ] Implementar Context API para estado global
-- [ ] Desenvolver componente Layout com Ant Design Layout
-- [ ] Implementar navegação com React Router
-- [ ] Criar componente IdeaManager com CRUD completo
-- [ ] Desenvolver TodoPipeline com drag-and-drop
-- [ ] Implementar Dashboard com métricas e gráficos
-- [ ] Integrar react-papaparse para exportação CSV
-- [ ] Implementar importação CSV com validação
-- [ ] Aplicar responsividade com Grid Ant Design
-- [ ] Implementar busca e filtros
-- [ ] Adicionar feedback visual para ações
-- [ ] Configurar temas e tokens Ant Design
-- [ ] Implementar tratamento de erros
-- [ ] Criar testes unitários para componentes principais
-- [ ] Testar responsividade em diferentes dispositivos
-- [ ] Validar fluxo completo de exportação/importação CSV
-- [ ] Otimizar performance com memoização
-- [ ] Documentar componentes principais
-- [ ] Build de produção e testes de integração
+- [x] Configurar projeto React com Create React App
+- [x] Instalar dependências: antd, react-papaparse, react-router-dom
+- [x] Criar estrutura de pastas: components, contexts, hooks, utils
+- [x] Implementar Context API para estado global
+- [x] Desenvolver componente Layout com Ant Design Layout
+- [x] Implementar navegação com React Router
+- [x] Criar componente IdeaManager com CRUD completo
+- [x] Desenvolver TodoPipeline com drag-and-drop
+- [x] Implementar Dashboard com métricas e gráficos
+- [x] Integrar react-papaparse para exportação CSV
+- [x] Implementar importação CSV com validação
+- [x] Aplicar responsividade com Grid Ant Design
+- [-] Implementar busca e filtros
+- [x] Adicionar feedback visual para ações
+- [x] Configurar temas e tokens Ant Design
+- [x] Implementar tratamento de erros
+- [?] Criar testes unitários para componentes principais
+- [x] Testar responsividade em diferentes dispositivos
+- [x] Validar fluxo completo de exportação/importação CSV
+- [-] Otimizar performance com memoização
+- [-] Documentar componentes principais
+- [x] Build de produção e testes de integração
 
 ---
 Nível de confiança: 4/5 — justificativa: Arquitetura bem definida com bibliotecas maduras, mas dependente de limitações do browser para CSV
